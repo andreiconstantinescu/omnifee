@@ -1,0 +1,17 @@
+{
+  "name": "omnifee-app",
+  "version": "0.0.1",
+  "description": "Online solution to pay all your bills woth one click",
+  "license": "propietary",
+  "authors": [
+    "Andrei Constantinecu <andrei.c@icloud.com>",
+    "Dragoș-Ștefan Horodnic <horodnicdragos@icloud.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
