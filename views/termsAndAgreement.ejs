@@ -1,0 +1,397 @@
+<!doctype html>
+<html>
+	<head>
+	<title>
+			Node Authentication
+	</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+	body 		{
+				padding-top:80px;
+			}
+			#logo {
+				width: 100%;
+			}
+	</style>
+	</head>
+	<body>
+<div class="container">
+  <div class="content">
+    <h3>
+      Dreptul de copyright
+    </h3>
+    <p>
+      Toate drepturile asupra informatiilor furnizate prin sau pe acest web-site incluzand, dar fara a se limita la: date, texte, stiri, grafica, desene, fotografii, ilustratii, poze, logo-uri, servicii si orice mentiuni, respectiv aranjarea lor, sunt rezervate
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+    </p>
+    <p>
+      Continutul acestui site nu poate fi reprodus, republicat, copiat, tradus sau modificat în orice fel, partial sau total, fara acordul expres prealabil al
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      . In mod exceptional, pot fi stocate sau copiate pe un calculator personal, parti distincte din acest site, daca aceste parti sunt destinate uzului personal, orice folosire comerciala sau în alt scop fiind interzisa. Acesta clauza nu reprezinta cesiunea sau transferul drepturilor intelectuale ce apartin
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+    </p>
+    <p>
+      In cazul incalcarii acestor termeni si conditii de catre utilizatori,
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      poate lua pentru recuperarea prejudiciilor orice masura legala considerata necesara, iar pentru protectia sa poate bloca accesul oricarui utilizator la acest site.
+    </p>
+    <h3>
+      Colectarea informatiilor si utilizarea serviciului de plati electronice
+    </h3>
+    <p>
+      <strong>
+        Acuratetea informatiilor furnizate
+      </strong>
+      <br/>
+      Acuratetea, corectitudinea si actualizarea informatiilor furnizate de catre utilizatori sunt in responsabilitatea acestora.
+      <br/>
+      <strong>
+        Informatiile personale
+      </strong>
+      <br/>
+      Informatiile personale se colecteaza cu rolul de identificare a utilizatorilor in procesul de autentificare sau de efectuare a unor plati. Informatiile colectate sunt legate de nume, prenume, date de contact (email, telefon, adresa), dar si informatii referitoare la cardul bancar (numarul cardului, data expirarii, numele titularului). In procesul de colectare a datelor, pentru maxima siguranta, codul de securitate nu va fi stocat.
+    </p>
+    <p>
+      <strong>
+        Inregistrarea cardurilor
+      </strong>
+      <br/>
+      Pentru a putea utiliza serviciul Omnifee  se vor stoca datele referitoare la cardul bancar (numarul cardului, data expirarii, numele titularului). Aceste date nu vor fi facute niciodata publice, iar pentru maxima siguranta codul de securitate (CVV2, CVC2) nu va fi stocat.
+    </p>
+    <p>
+      <strong>
+        NOTA DE INFORMARE PRIVIND PROTECTIA DATELOR PERSONALE
+      </strong>
+      <br/>
+      Conform cerintelor Legii nr. 677/2001 pentru protectia persoanelor cu privire la prelucrarea datelor cu caracter personal si libera circulatie a acestor date, modificata şi completata si ale Legii nr. 506/2004 privind prelucrarea datelor cu caracter personal
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      are obligatia de a administra în conditii de siguranta si numai pentru scopurile specificate, datele personale pe care le furnizati.
+    </p>
+    <p>
+      Scopul colectarii datelor este: Servicii financiar-bancare si sistemul de plata on-line Omnifee , impreuna cu serviciile conexe acestuia.
+    </p>
+    <p>
+      Informatiile furnizate sunt necesare prelucrarii datelor in sistemul de plata Omnifee  si cele conexe acestuia. Refuzul dvs. determina imposibilitatea de a procesa plata prin intermediul
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      , Omnifee  si sistemele de plata conexe acestuia.
+    </p>
+    <p>
+      Conform Legii nr. 677/2001, beneficiati de dreptul de acces, de interventie asupra datelor, dreptul de a nu fi supus unei decizii individuale si dreptul de a va adresa justitiei. Totodata, aveti dreptul sa va opuneti prelucrarii datelor personale care va privesc si sa solicitati stergerea datelor*. Pentru exercitarea acestor drepturi, va puteti adresa cu o cerere scrisa, datata si semnata la
+      .
+    </p>
+    <p>
+      Daca unele din datele despre dumneavoastra sunt incorecte, va rugam sa ne informati cat mai curând posibil.
+    </p>
+    <p>
+      Observatie:
+      <br/>
+      -orice persoana are dreptul de a se opune, pentru motive legitime, la prelucrarea datelor ce o privesc. Acest drept de opozitie poate fi exclus pentru anumite prelucrari prevazute de lege (de ex.: prelucrari efectuate de serviciile financiare si fiscale, de politie, justitie, securitate sociala). Prin urmare, aceasta mentiune nu poate figura daca prelucrarea are un caracter obligatoriu;
+    </p>
+    <p>
+      -orice persoana are, de asemenea, dreptul de a se opune, in mod gratuit si fara nici o justificare, la prelucrarea datelor sale personale in scopuri de marketing direct.
+    </p>
+    <p>
+      <strong>
+        Alte informari cu privire la protectia datelor personale
+      </strong>
+      <br/>
+      Orice persoana care viziteaza site-ul www.Omnifee.com care foloseste serviciul Omnifee  si care ofers date sau informatii cu caracter personal bancii isi manifesta acordul in mod expres si neechivoc pentru urmatoarele: prelucrarea acestor date si informatii personale de catre banca in vederea efectuarii de studii de piata sau transmiterii de materiale promotionale specifice operatiunilor de marketing direct.In conformitate cu prevederile Legii nr. 677/2001 pentru protectia persoanelor cu privire la prelucrarea datelor cu caracter personal si libera circulatie a acestor date, dispuneti de urmatoarele drepturi: dreptul de informare (art.12), dreptul de acces la date (art. 13), dreptul de interventie asupra datelor (art.14), dreptul de opozitie (art. 15), dreptul de a nu fi supus unei decizii individuale (art. 17), dreptul de a se adresa justitiei (art. 18). De asemenea, utilizatorul site-ului are dreptul de a cere stergerea informatiilor referitoare la persoana sa. Inregistrarea pe vreunul din site-urile mentionate mai sus sau utilizarea serviciului Omnifee  presupune luarea la cunoştinta a drepturilor mai sus mentionate si acordul ca datele personale sa fie folosite de catre
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      .
+    </p>
+    <p>
+      Prin prezenta inteleg sa imi exprim in mod expres consimtamantul ca, pe termen nelimitat, Banca sa prelucreze informatiile indicate la pct. 1 de mai jos inregistrate pe numele meu in evidentele proprii (astfel cum termenul de „prelucrare” este definit de Legea nr. 677/2001 pentru protectia persoanelor cu privire la prelucrarea datelor cu caracter personal si libera circulatie a acestor date, publicata în Monitorul Oficial nr. 790/12.12.2001). La incheierea operatiunilor de prelucrare a informatiilor indicate la pct. 1 de mai jos, imi exprim in mod expres consimtamantul ca Banca sa arhiveze informatiile indicate la pct. 1 de mai jos inregistrate pe numele meu in evidentele proprii precum si sa transfere aceste informatii catre orice alt operator, in conditiile garantarii de catre Banca a faptului ca prelucrarile ulterioare vor avea scopuri similare celor in care s-a facut prelucrarea pentru care imi dau consimtamantul prin prezentul acord.
+    </p>
+    <h4>
+      1. Informatii prelucrate:
+    </h4>
+    <p>
+      a) date cu caracter personal având functie de identificare*
+    </p>
+    <p>
+      b) informatii legate de activitatea frauduloasa în raport cu Banca **
+    </p>
+    <p>
+      c) informatii referitoare la inadvertentele constatate în documentele/declaratiile prezentate Bancii***
+      <br/>
+      *cuprinde informatii legate de numele si prenumele clientului, domiciliul, numarul de telefon, adresa email, etc.
+      <br/>
+      **cuprinde informatii legate de savarsirea de infractiuni sau contraventii in raport cu Banca care sunt constatate prin hotarari judecatoresti definitive.
+    </p>
+    <h4>
+      2. Declar pe propria raspundere ca mi-au fost furnizate de catre Banca informatiile prevazute la art. 12 alin. 1 din Legea nr. 677/2001 pentru protectia persoanelor cu privire la prelucrarea datelor cu caracter personal si libera circulatie a acestor date, a caror semnificatie o inteleg si mi-o insusesc pe deplin.
+    </h4>
+    <h4>
+      3. Am luat la cunostinta faptul ca imi pot exercita toate drepturile prevazute de Legea nr. 677/2001 pentru protectia persoanelor cu privire la prelucrarea datelor cu caracter personal si libera circulatie a acestor date, respectiv urmatoarele drepturi:
+    </h4>
+    <p>
+      a) Dreptul de acces la date: dreptul de a obtine de la Banca la cerere si in mod gratuit, pentru o solicitare pe an, confirmarea faptului ca datele in legatura cu mine sunt sau nu prelucrate de catre aceasta. Acest drept poate fi exercitat în urmatoarele conditii: se adreseaza o cerere catre Banca, intocmita in forma scrisa, datata si semnata, in care se va mentiona modul in care solicitantul doreste sa ii fie comunicate informatiile (o anumita adresa, inclusiv adresa de posta electronica, sau printr-un serviciu care de corespondenta care sa asigure ca predarea se va face numai personal);
+    </p>
+    <p>
+      b) Dreptul de interventie: dreptul de a obtine, la cerere si in mod gratuit, rectificarea, actualizarea, blocarea, stergerea sau transformarea in date anonime a datelor a caror prelucrare nu este conforma legii, în special a datelor incomplete sau inexacte. Acest drept poate fi exercitat in urmatoarele conditii: se adreseaza o cerere catre Banca, intocmita in forma scrisa, datata si semnata, in care se vor mentiona datele asupra carora se solicita interventia, motivul justificat si modul de interventie, precum si modul in care solicitantul doreste sa ii fie comunicate informatiile (o anumita adresa, inclusiv adresa de posta electronica, sau printr-un serviciu care de corespondenta care sa asigure ca predarea se va face numai personal);
+    </p>
+    <p>
+      c) Dreptul de opozitie: dreptul de a ma opune in orice moment, din motive intemeiate si legitime legate de situatia mea particulara, ca datele care ma vizeaza sa faca obiectul unei prelucrari, cu exceptia cazurilor in care exista dispozitii legale contrare. Acest drept poate fi exercitat in urmatoarele conditii: se adreseaza o cerere catre Banca, intocmita in forma scrisa, datata si semnata, in care se vor mentiona datele asupra carora se solicita opozitia si motivul intemeiat si legitim legat de situatia particulara a persoanei, precum si modul in care solicitantul doreste sa ii fie comunicate informatiile (o anumita adresa, inclusiv adresa de posta electronica, sau printr-un serviciu care de corespondenta care sa asigure ca predarea se va face numai personal);
+    </p>
+    <p>
+      d) Dreptul de a nu fi supus unei decizii individuale: dreptul de a solicita retragerea sau anularea oricarei decizii care produce efecte in privinta mea, adoptata exclusiv in baza unei prelucrari de date cu caracter personal, efectuata prin mijloace automate, destinata sa evalueze unele aspecte ale personalitatii mele, precum competenta profesionala, credibilitatea, comportamentul meu sau orice alte asemenea aspecte;
+    </p>
+    <p>
+      e) Dreptul de a ma adresa justitiei: dreptul de a ma adresa instantei competente pentru apararea drepturilor garantate de lege si repararea oricarui prejudiciu suferit in urma unei prelucrari de date cu caracter personal, efectuata ilegal;
+    </p>
+    <p>
+      f) Dreptul de a ma adresa autoritatii de supraveghere: dreptul de a face plangere la Autoritatea Nationala de Supraveghere a Prelucrarii Datelor cu Caracter Personal, pentru apararea drepturilor garantate de lege.
+    </p>
+    <p>
+      <strong>
+        Inregistrarea cardurilor
+      </strong>
+      <br/>
+      Pentru a putea utiliza serviciul Omnifee  si facilitatile conexe se vor stoca datele referitoare la cardul bancar (numarul cardului, data expirarii, numele titularului). Aceste date nu vor fi facute niciodata publice, iar pentru maxima siguranta codul de securitate (CVV2, CVC2) nu va fi stocat.
+    </p>
+    <p>
+      <strong>
+        Plati rapide (doar prin introducerea codului de securitate CVC2/CVV)
+      </strong>
+      <br/>
+      Prin mentinerea activa a bifei “Activeaza optiunea plati rapide” prezenta in formularul de plata online Omnifee  sau prin parcurgerea pasilor ce presupun definirea unei parole de acces in cadrul Wallet Omnifee , utilizatorul isi da acceptul pentru activarea contului Wallet Omnifee , prin care se vor putea efectua plati online catre comerciantii parteneri Omnifee  inclusiv doar prin introducerea codului de securitate CVC2 / CVV.
+    </p>
+    <p>
+      <strong>
+        Plati facturi utilitati
+      </strong>
+      <br/>
+      Prin aplicatia Wallet Omnifee  destinata dispozitivelor mobile cu sistemul de operare Android (minim versiunea 2.3.7) si iOS (minim versiunea 5.0), dar si prin intermediul site-urilor: wallet.Omnifee .ro si platifacturi.com utilizatorii isi pot achita online facturile de utilitati la urmatorii furnizori: Enel Energie Muntenia S.A., Orange Romania S.A., RCS&RDS S.A., Telekom Romania Communications S.A., Vodafone Romania S.A., Telekom Romania Mobile Communications S.A., UPC ROMANIA S.R.L., S.C ENEL ENERGIE S.A., E.ON Energie Romania S.A., Congaz S.A., S.C. CEZ Vanzare S.A., GDF SUEZ ENERGY ROMANIA S.A., Apa Nova Bucuresti S.A., Aquatim S.A., Apa Canal S.A. Galati, S.C. APAVITAL S.A. Iasi, Apa Oltenia S.A., S.C. Compania Apa Brasov S.A.. Platile se pot realiza direct din aplicatia Wallet Omnifee  fie prin scanarea codului de bare de pe factura (prin preluarea automata a datelor de pe factura), fie prin introducerea manuala a datelor de pe factura in campurile aferente atat din aplicatie, cat si din site-urile aferente (wallet.Omnifee .ro, platifacturi.com). Responsabilitatea completarii corecte si verificarii datelor trimise la plata revine in totalitate utilizatorului.
+      <br/>
+      Pentru fiecare suma online achitata catre furnizorii mentionati se va percepe un comision de 3% din suma de plata introdusa, dar nu mai putin de 1 RON. Suma acceptata la plata pentru fiecare factura este de maxim 1500 RON. Pentru plata facturilor la utilitati prin intermediul www.omnifee.com se pot utiliza doar carduri emise in Romania.
+      <br/>
+      In cazul transmiterii incorecte, netransmiterii din motive independente de sistemul de plati online Omnifee  sau in cazul in care furnizorul de utilitati nu proceseaza plata, BANCA se absolva de orice responsabilitate in relatia cu utilizatorul.
+      <br/>
+      Sistemul de plati online Omnifee  va transfera contravaloarea facturii catre furnizorul de utilitati a doua zi lucratoare dupa efectuarea platii. Confirmarea platilor catre furnizorii de utilitati poate dura pana la 5-6 zile lucratoare. In cazul depasirii termenului de scadenta va recomandam contactarea acestor furnizori pentru confirmarea efectuarii platii catre acestia.
+    </p>
+    <p>
+      <strong>
+        Plata Amenzi Circulatie Auto
+      </strong>
+      <br/>
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      in parteneriat cu Netbridge Development S.R.L prin intermediul aplicatiei de mobil Auto.ro pune la dispozitia utilizatorilor plata online a amenzilor de circulatie. Prezentele prevederi privind serviciul de plata online a amenzilor de circulatie se completeaza cu Termenii si conditiile Netbridge Development S.R.L care pot fi accesati la urmatoarea adresa:
+      .
+    </p>
+    <p>
+      Platile se pot realiza direct din aplicatia de mobil Auto.ro prin introducerea manuala a datelor aferente procesului verbal de constatare a contraventiei. Utilizatorul trebuie sa completeze si sa verifice corectitudinea datelor furnizate necesare realizarii platii amenzii de circulatie auto conform datelor trecute in procesul verbal de constatare a contraventiei si informatiilor ajutatoare din Auto.ro.
+    </p>
+    <p>
+      Responsabilitatea completarii corecte si verificarii datelor trimise la plata revine in totalitate utilizatorului. Nici
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      si nici Netbridge Development S.R.L. nu poarta vreo responsabilitate privind directionarea gresita a platilor de catre utilizator sau in cazul aparitiei de erori in completarea datelor necesare pentru plata amenzii.
+    </p>
+    <p>
+      Pentru fiecare amenda de circulatie achitata online se va percepe un comision de 5% din suma de plata introdusa. Plata online a amenzilor de circulatie prin intermediul aplicatiei de mobil Auto.ro se poate realiza doar prin utilizarea cardurilor emise in Romania.
+    </p>
+    <p>
+      <strong>
+        Informatii obtinute de la terti
+      </strong>
+      <br/>
+      Pentru a oferi toate avantajele serviciului Omnifee  sunt preluate informatii legate de utilizator de la terti, cum ar fi produsele cumparate prin serviciul Omnifee , detaliile comenzilor, etc.
+    </p>
+    <p>
+      <strong>
+        Informatii despre tranzactie
+      </strong>
+      <br/>
+      La utilizarea serviciului de procesare pentru a efectua o tranzactie, putem colecta informatii despre fiecare tranzactie, inclusiv valoarea acesteia, descrierile bunurilor sau serviciilor achizitionate, detaliile despre livrare sau informatii despre cardurile folosite.
+    </p>
+    <p>
+      <strong>
+        Informatii despre utilizarea Omnifee
+      </strong>
+      <br/>
+      Prin serviciul Omnifee  se pot colecta informatii despre interactiunea utilizatorului in site. Acestea pot include: tentativele esuate de plata, numarul de accesari si sectiunile accesate.
+    </p>
+    <p>
+      <strong>
+        Comunicarea cu utilizatorul
+      </strong>
+      <br/>
+      Comunicarile prin email sau alte canale de cumunicare cu utilizatorul pot fi retinute pentru a fi procesate ulterior, pentru a putea raspunde cerintelor si a ne imbunatati serviciile.
+    </p>
+    <p>
+      <strong>
+        Informatiile colectate pentru a preveni frauda
+      </strong>
+      <br/>
+      In scopul de a proteja utilizatorul impotriva fraudelor, phishing-ului sau a altor abateri, se pot colecta informatii despre interactiunea utilizatorilor cu serviciul Omnifee , cu scopul de a permite validarea identitatii sau de a detecta comportamente potential frauduloase.
+    </p>
+    <p>
+      <strong>
+        Utilizarea serviciului prin furnizori terti, comercianti sau alte entitati
+      </strong>
+      <br/>
+      In procesul de cumparare de pe un site ce foloseste sistemul de plata Omnifee , se pot transmite anumite informatii personale de la comerciant catre sistemul Omnifee  pentru finalizarea tranzactiei. Nu suntem responsabili de actiunile comerciantului ales de client si astfel nici de informatiile transferate folosind serviciul Omnifee .
+    </p>
+    <p>
+      <strong>
+        Masuri de securitate
+      </strong>
+      <br/>
+      Sistemul de procesare a platilor online Omnifee  ia masurile de securitate necesare pentru a proteja utilizatorii impotriva accesului neautorizat sau pentru modificarea neautorizata, distrugerea sau divulgarea datelor stocate prin serviciul Omnifee .
+    </p>
+    <p>
+      Securitatea contului Omnifee , depinde si de mentinerea confidentialitatii parolei aferente. In plus, niciodata nu ar trebui sa se impartaseasca numele de cont sau parola cu nimeni.
+    </p>
+    <p>
+      <strong>
+        Modificari ulterioare
+      </strong>
+      <br/>
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      isi rezerva dreptul de a efectua modificari in termenii si conditiile prezentate, fara o notificare prealabila. Utilizarea serviciului Omnifee  presupune cunoasterea si acceptarea implicita a termenilor si conditiilor noastre.
+    </p>
+    <p>
+      <strong>
+        Schimbul de informatii
+      </strong>
+      <br/>
+      Nu se vor furniza niciodata informatiile personale ale clientilor nostri catre alte companii sau persoane din afara
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      , fara acordul acestora. In cazul cumpararii de produse si/sau servicii prin sistemul Omnifee  exista posibilitatea de a furniza anumite informatii (de exemplu: numele clientului,  numarul de telefon, adresa de email) catre comerciantul de la care sunt cumparate, in scopul identificarii tranzactiilor realizate.
+    </p>
+    <h3>
+      Confidentialitate
+    </h3>
+    <p>
+      Toate datele colectate in cursul vizitelor pe site sunt procesate conform prevederilor legale valabile in România.
+      <br/>
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      se angajeaza sa nu dezvaluie nici o informatie cu privire la vizitele utilizatorilor pe site, exceptand situatiile legale.
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      nu va transmite nici unui tert datele personale introduse pe site-ul www.omnifee.com sau in cadrul aplicatiei mobile Wallet Omnifee .ro, conform acestor “Termeni si Conditii”.
+    </p>
+    <p>
+      Modificari ale prezentei clauze de confidentialitate ce vor aparea pe parcurs vor fi publicate in aceasta pagina web fara informare prealabila. “Termeni si Condiţii” constituie, in intregime, un acord incheiat intre vizitatori sau utilizatori si
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      in privinta utilizarii site-ului www.omnifee.com.
+    </p>
+    <h3>
+      Folosirea serviciului
+    </h3>
+    <p>
+      Serviciul Omnifee  poate fi folosit de clienti sau parteneri ai
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      precum si de orice alte persoane care doresc sa beneficieze de serviciile
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      sau sa se informeze asupra lor.
+      <br/>
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      isi rezerva dreptul de a modifica continutul si/sau structura site-urilor si a aplicatiilor mobile in orice moment si fara nici o informare prealabila.
+    </p>
+    <p>
+      Nici o informatie prezenta pe aceste site-uri sau in aplicatiile mobile nu vor fi considerate drept oferte de produse sau servicii în general si produse bancare, asigurari, leasing, bursiere, desi depune toate eforturile pentru a oferi clientilor sau partenerilor sai informatii actualizate.
+    </p>
+    <p>
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      nu certifica si nu garanteaza faptul ca aceste site-uri si servicii functioneaza fara erori si întreruperi.
+    </p>
+    <p>
+      Mesajele trimise catre
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      prin e-mail ar putea sa nu fie securizate. Omnifee recomanda sa nu se transmita informatii confidentiale catre
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      prin e-mail. Daca totusi au fost trimise mesaje catre Omnifee prin e-mail, utilizatorii accepta riscul ca respectivul mesaj sa fie interceptat, folosit necorespunzator si modificat de catre o terta parte.
+    </p>
+    <p>
+      Astfel
+      <span style="color: #F45537;">
+        <strong>
+          Omnifee
+        </strong>
+      </span>
+      nu poate fi responsabila pentru nici un fel de daune produse utilizatorului.
+    </p>
+  </div>
+</div>
+</body>
+</html>
