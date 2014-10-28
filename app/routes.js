@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
 		res.render('index.ejs');
 	});
 
-	app.get('/terms-and-conditions', function (req, res) {
+	app.get('/terms-and-agreements', function (req, res) {
 		res.render('termsAndAgreement.ejs');
 	})
 
