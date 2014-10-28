@@ -6,6 +6,8 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<style>
+  @input-border-focus
+
   .reasonsStripe{
   text-align: center;
   margin-top: 2em;
@@ -177,7 +179,7 @@ jQuery(function($) {
   // $('.username').focusout(function(){$('.username').toggleInputError(!$('.username').val())));
   $('form').submit(function(e) {
     var cnp = $('.cnp').val()
-    if(!(!cnpValid($('.cnp').val())||!$('.mail').val()||!($('.pwd2').val() === $('.pwd1').val())||!$('.pwd1').val().length>=8||!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd2').val().length>=8)||!$('.nume').val()||!$('.prenume').val()||!$('.telefon').val()||!$('.adresa').val()||!$('.terms').val()))
+    if(!(!cnpValid($('.cnp').val())||!$('.mail').val()||!($('.pwd2').val() === $('.pwd1').val())||!$('.pwd1').val().length>=8||!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd2').val().length>=8)||!$('.nume').val()||!$('.prenume').val()||!$('.telefon').val()||!$('.adresa').val()||!$('.terms').val()||!$.payment.validateCardNumber($('.cc-number').val())||!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal'))||!$.payment.validateCardCVC($('.cc-cvc').val(), cardType)))
       $('form').unbind('submit');
     else
       e.preventDefault();
