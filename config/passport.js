@@ -105,13 +105,26 @@ module.exports = function(passport) {
                         newUser.local.cardNumber = req.body.cardNumber;
                         newUser.local.cardExpiry = req.body.cardExpiry;
                         newUser.local.cardCVC = req.body.cardCVC;
-                        newUser.local.balance = "200";
+                        newUser.local.balance = 200;
                         newUser.local.bill1 = "Vodafone";
                         newUser.local.bill1Value = 135.67;
                         newUser.local.bill2 = "Orange";
                         newUser.local.bill2Value = 37.58;
                         newUser.local.bill3 = "Enel";
                         newUser.local.bill3Value = 189.42;
+                        newUser.local.bill4 = "Telekom";
+                        newUser.local.bill4Value = 59.99;
+                        newUser.local.bill5 = "Digi";
+                        newUser.local.bill5Value = 100.99;
+                        newUser.local.bill6 = "Distrigaz";
+                        newUser.local.bill6Value = 89.90;
+                        newUser.local.bill1Paid = 'false';
+                        newUser.local.bill2Paid = 'false';
+                        newUser.local.bill3Paid = 'false';
+                        newUser.local.bill4Paid = 'false';
+                        newUser.local.bill5Paid = 'false';
+                        newUser.local.bill6Paid = 'false';
+
 
                         newUser.save(function(err) {
                             if (err)

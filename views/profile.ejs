@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<style>
-		body 		{ padding-top:80px; word-wrap:break-word; }
+		body 		{ padding-top:50px; word-wrap:break-word; }
 body {
   font-size: 18px;
   font-family: 'Lato';
@@ -24,6 +24,7 @@ body {
     background: #eee;
   }
 }
+
 .top-bar {
   height: 3em;
   padding: 0 3em 0 3em;
@@ -105,6 +106,12 @@ a:hover {
 .bill-thumb {
   height: 6em;
 }
+@media (max-width: 767px) {
+	.bill-thumb {
+		height: 3.5em;
+	}
+}
+
 .bill-info {
   font-size: 0.5em;
 }
@@ -134,6 +141,29 @@ a:hover {
 .balance-number {
   color: #008000;
   float: right;
+}
+.sidebar {
+	height: 100vh;
+}
+.preferences {
+	height: 100%;
+}
+
+@media (max-width: 767px) {
+	.bills-to-pay {
+		padding: 50px;
+	}
+}
+.menu-options {
+	padding-top: 50px;
+	width: 100%;
+}
+
+.menu-options a {
+	font-weight: 100;
+	font-size: 1.3em;
+	line-height: 2.6em;
+	color: #a1a1a1
 }
 
 	</style>
@@ -185,12 +215,12 @@ a:hover {
 		$('.bill-total .price h3 span').html(sum);
 	})
 	</script>
-	<div class="container">
-  <div class="content">
+
+
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-3 sidebar">
         <div class="preferences">
-          <div class="container">
+          <div class="menu-options">
             <ul>
               <li>
                 <a href="">
@@ -221,7 +251,7 @@ a:hover {
           </div>
         </div>
       </div>
-      <div class="col-sm-9">
+      <div class="col-sm-8 bills-to-pay">
         <div class="row balance">
           <div class="col-xs-6">
             <h2>
@@ -238,11 +268,12 @@ a:hover {
             </h2>
           </div>
         </div>
+				<% if (user.local.bill1Paid === 'false') { %>
         <div class="bill row">
-          <div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+          <div class="col-sm-4 col-xs-2 col-md-3 col-lg-2">
             <img src="../assets/providers/vodafone.png" class="bill-thumb"/>
           </div>
-          <div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+          <div class="col-xs-5 col-sm-4 col-md-5 col-lg-6">
             <div class="bill-info">
               <span>
                 Nr. de telefon: 722812066
@@ -276,9 +307,91 @@ a:hover {
             </div>
           </div>
         </div>
+				<% } %>
+				<% if (user.local.bill2Paid === 'false') { %>
+				<div class="bill row">
+					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+						<img src="../assets/providers/orange.png" class="bill-thumb"/>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+						<div class="bill-info">
+							<span>
+								Nr. de telefon: 745141448
+							</span>
+							<br/>
+							<span>
+								Cont client: 09347355
+							</span>
+							<br/>
+							<span>
+								Seria si numarul facturii: OG94823175
+							</span>
+							<br/>
+							<span>
+								Data facturii: 1/10/2014
+							</span>
+							<br/>
+							<span>
+								Perioada de facturare: 1/09/2014 - 31/10/2014
+							</span>
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="bill-pay">
+							<div class="price">
+									<span><%= user.local.bill2Value %></span> RON
+							</div>
+							<button type="submit" class="btn btn-lg btn-primary pay">
+								Plateste
+							</button>
+						</div>
+					</div>
+				</div>
+				<% } %>
+				<% if (user.local.bill6Paid === 'false') { %>
+				<div class="bill row">
+					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+						<img src="../assets/providers/distrigaz.png" class="bill-thumb"/>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+						<div class="bill-info">
+							<span>
+								Nr. de telefon: 745141448
+							</span>
+							<br/>
+							<span>
+								Cont client: 09347355
+							</span>
+							<br/>
+							<span>
+								Seria si numarul facturii: OG94823175
+							</span>
+							<br/>
+							<span>
+								Data facturii: 1/10/2014
+							</span>
+							<br/>
+							<span>
+								Perioada de facturare: 1/09/2014 - 31/10/2014
+							</span>
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="bill-pay">
+							<div class="price">
+									<span><%= user.local.bill6Value %></span> RON
+							</div>
+							<button type="submit" class="btn btn-lg btn-primary pay">
+								Plateste
+							</button>
+						</div>
+					</div>
+				</div>
+				<% } %>
+				<% if (user.local.bill4Paid === 'false') { %>
         <div class="bill row">
           <div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
-            <img src="../assets/providers/orange.png" class="bill-thumb"/>
+            <img src="../assets/providers/telekom.png" class="bill-thumb"/>
           </div>
           <div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
             <div class="bill-info">
@@ -306,7 +419,7 @@ a:hover {
           <div class="col-xs-4">
             <div class="bill-pay">
               <div class="price">
-                  <span><%= user.local.bill2Value %></span> RON
+                  <span><%= user.local.bill4Value %></span> RON
               </div>
               <button type="submit" class="btn btn-lg btn-primary pay">
                 Plateste
@@ -314,6 +427,87 @@ a:hover {
             </div>
           </div>
         </div>
+				<% } %>
+				<% if (user.local.bill5Paid === 'false') { %>
+				<div class="bill row">
+					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+						<img src="../assets/providers/digimobil.png" class="bill-thumb"/>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+						<div class="bill-info">
+							<span>
+								Nr. de telefon: 745141448
+							</span>
+							<br/>
+							<span>
+								Cont client: 09347355
+							</span>
+							<br/>
+							<span>
+								Seria si numarul facturii: OG94823175
+							</span>
+							<br/>
+							<span>
+								Data facturii: 1/10/2014
+							</span>
+							<br/>
+							<span>
+								Perioada de facturare: 1/09/2014 - 31/10/2014
+							</span>
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="bill-pay">
+							<div class="price">
+									<span><%= user.local.bill5Value %></span> RON
+							</div>
+							<button type="submit" class="btn btn-lg btn-primary pay">
+								Plateste
+							</button>
+						</div>
+					</div>
+				</div>
+				<% } %>
+				<% if (user.local.bill3Paid === 'false') { %>
+				<div class="bill row">
+					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+						<img src="../assets/providers/enel.png" class="bill-thumb"/>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+						<div class="bill-info">
+							<span>
+								Nr. de telefon: 745141448
+							</span>
+							<br/>
+							<span>
+								Cont client: 09347355
+							</span>
+							<br/>
+							<span>
+								Seria si numarul facturii: OG94823175
+							</span>
+							<br/>
+							<span>
+								Data facturii: 1/10/2014
+							</span>
+							<br/>
+							<span>
+								Perioada de facturare: 1/09/2014 - 31/10/2014
+							</span>
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="bill-pay">
+							<div class="price">
+									<span><%= user.local.bill3Value %></span> RON
+							</div>
+							<button type="submit" class="btn btn-lg btn-primary pay">
+								Plateste
+							</button>
+						</div>
+					</div>
+				</div>
+				<% } %>
         <div class="row">
           <div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
             <h2>
@@ -335,7 +529,11 @@ a:hover {
             </div>
           </div>
         </div>
+
       </div>
+			<div class="col-sm-2 hidden-xs">
+
+			</div>
     </div>
   </div>
 </div>
@@ -367,8 +565,6 @@ a:hover {
 				<% } %>
 
 			</div>
-		</div>
 
-</div>
 </body>
 </html>

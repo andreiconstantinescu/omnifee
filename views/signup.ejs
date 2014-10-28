@@ -271,7 +271,7 @@ jQuery(function($) {
 
   });
 
-});   
+});
 
 	</script>
 
@@ -283,11 +283,11 @@ jQuery(function($) {
         <form novalidate="" autocomplete="on" method="POST">
           <div class="form-group">
             <label for="mail" class="control-label">Adresa de E-Mail</label>
-            <input type="text" placeholder="Ex: gheorghe.gheorghescu@mail.com" required="" class="mail input-lg form-control"/>
+            <input type="text" placeholder="Ex: gheorghe.gheorghescu@mail.com" required="" name="email" class="mail input-lg form-control"/>
           </div>
           <div class="form-group">
             <label for="pwd1" class="control-label">Parola</label>
-            <input type="password" placeholder="" required="" class="pwd1 input-lg form-control"/>
+            <input type="password" placeholder="" required="" name="password" class="pwd1 input-lg form-control"/>
           </div>
           <div class="form-group">
             <label for="pwd2" class="control-label">Repetati parola</label>
@@ -296,15 +296,15 @@ jQuery(function($) {
           <h3>Date Personale <i class="fa fa-user"> </i></h3>
           <div class="form-group">
             <label for="nume" class="control-label">Nume</label>
-            <input type="text" placeholder="Ex: Gheorghescu" required="" class="nume input-lg form-control"/>
+            <input type="text" placeholder="Ex: Gheorghescu" required="" name="familyName" class="nume input-lg form-control"/>
           </div>
           <div class="form-group">
-            <label for="prenume" class="control-label">Preume</label>
-            <input type="text" placeholder="Ex: Gheorghe" required="" class="prenume input-lg form-control"/>
+            <label for="prenume" class="control-label">Prenume</label>
+            <input type="text" placeholder="Ex: Gheorghe" required="" name="name" class="prenume input-lg form-control"/>
           </div>
           <div class="form-group">
             <label for="cnp" class="control-label">CNP</label>
-            <input type="text" placeholder="Ex: 1890326419963" required="" class="cnp input-lg form-control"/>
+            <input type="text" placeholder="Ex: 1890326419963" required="" name="cnp" class="cnp input-lg form-control"/>
           </div>
           <div class="form-group">
             <label for="oras" class="control-label">Oras/Judet</label><br/>
@@ -633,24 +633,24 @@ jQuery(function($) {
           </div>
           <div class="form-group">
             <label for="adresa" class="control-label">Adresa</label>
-            <input type="text" placeholder="Ex: Strada Timpului Nr. 12 Bl. 24 Ap. 3" required="" class="adresa input-lg form-control"/>
+            <input type="text" placeholder="Ex: Strada Timpului Nr. 12 Bl. 24 Ap. 3" required="" name="address" class="adresa input-lg form-control"/>
           </div>
           <div class="form-group">
             <label for="telefon" class="control-label">Numar de Telefon</label>
-            <input type="text" placeholder="Ex: 0721234567 " required="" class="telefon input-lg form-control"/>
+            <input type="text" placeholder="Ex: 0721234567 " required="" name="phone" class="telefon input-lg form-control"/>
           </div>
           <h3>Metoda de Facturare <i class="fa fa-money"> </i></h3>
           <div class="form-group">
             <label for="cc-number" class="control-label">Card<small class="text-muted"> <span class="cc-brand"></span> </small></label>
-            <input id="cc-number" type="text" pattern="d*" autocomplete="cc-number" placeholder="Card number" required="" class="input-lg form-control cc-number"/>
+            <input id="cc-number" type="text" pattern="d*" autocomplete="cc-number" placeholder="Card number" required="" name="cardNumber" class="input-lg form-control cc-number"/>
           </div>
           <div class="form-group">
             <label for="cc-exp" class="control-label">Expiry formatting</label>
-            <input id="cc-exp" type="text" pattern="d*" autocomplete="cc-exp" placeholder="Expires MM/YY" required="" class="input-lg form-control cc-exp"/>
+            <input id="cc-exp" type="text" pattern="d*" autocomplete="cc-exp" placeholder="Expires MM/YY" required="" name="cardExpiry" class="input-lg form-control cc-exp"/>
           </div>
           <div class="form-group">
             <label for="cc-cvc" class="control-label">CVC formatting</label>
-            <input id="cc-cvc" type="text" pattern="d*" autocomplete="off" placeholder="Security code" required="" class="input-lg form-control cc-cvc"/>
+            <input id="cc-cvc" type="text" pattern="d*" autocomplete="off" placeholder="Security code" required="" name="cardCVC" class="input-lg form-control cc-cvc"/>
           </div>
           <input type="checkbox" name="terms" value="terms" class="terms"/> Am citit si sunt de acord cu <a href="/terms-and-agreements/">termenii si conditiile</a>.<br/><br/>
           <button type="submit" class="btn btn-lg btn-primary subm">Creeaza cont</button>
