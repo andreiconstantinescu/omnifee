@@ -3,11 +3,145 @@
 <head>
 	<title>Omnifee | Sign Up</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<style>
+  .reasonsStripe{
+  text-align: center;
+  margin-top: 2em;
+  }
 		body 		{ padding-top:80px; }
 		#logo {text-align: center;}
 		#logo img { width: 60%}
+body {
+  font-size: 18px;
+  font-family: 'Lato';
+  background: #fff;
+}
+.content {
+  padding: 15px;
+  background: #fff;
+}
+[role="page-container"] {
+  padding-top: 50px;
+}
+@media (max-width: 767px) {
+  [role="page-container"] {
+    background: #eee;
+  }
+}
+.top-bar {
+  height: 3em;
+  padding: 0 3em 0 3em;
+}
+.title-area {
+  padding-top: 0.5em;
+  color: #d05833;
+}
+.top-bar-section ul li > a {
+  font-size: 1em;
+  line-height: 0;
+}
+/* Form styles */
+.has-error input {
+  border-width: 2px;
+  border-color: #f00;
+}
+.has-no-error input {
+  border-width: 2px;
+  border-color: #008000;
+}
+.validation.text-danger:after {
+  content: 'Verifica din nou campurile marcate!';
+}
+.validation.text-success:after {
+  content: 'Succes!';
+}
+.credit-card {
+  font-size: 3em;
+}
+.btn {
+  background: #f45537;
+  border: 0;
+}
+.btn:hover {
+  background: #fa6143;
+}
+.login-logo {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 320px;
+}
+.nu-ai-cont {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  max-width: 320px;
+}
+.preferences {
+  background: #1a1a1a;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  color: #f45537;
+}
+a:hover {
+  color: #f45537;
+  text-decoration: none;
+}
+.fixed {
+  position: fixed;
+}
+.bill {
+  background: #e8e8e8;
+  height: 8em;
+  margin: 0 0 1em 0;
+  padding: 1em;
+}
+.bill-thumb {
+  height: 6em;
+}
+.bill-info {
+  font-size: 0.5em;
+}
+.bill-pay {
+  float: right;
+}
+.price {
+  color: #f45537;
+}
+.pay {
+  margin-bottom: -5em;
+}
+.total-price {
+  float: right;
+  margin: 1em 0 0 0;
+  color: #f45537;
+}
+.center {
+  text-align: center;
+}
+.btn {
+  border-radius: 0;
+}
+.input-lg {
+  border-radius: 0;
+}
+.balance-number {
+  color: #008000;
+  float: right;
+}
+
 	</style>
 </head>
 <body>
@@ -15,7 +149,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.2/jquery.payment.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script charset="utf-8">
-		function cnpValid(n)
+function cnpValid(n)
 {
   var sum = 0;
   sum += n[0]*2+n[1]*7+n[2]*9+n[3]*1+n[4]*4+n[5]*6+n[6]*3+n[7]*5+n[8]*8+n[9]*2+n[10]*7+n[11]*9;
@@ -28,9 +162,8 @@
       // alert('Invalid');
 
 }
-function isValid () {
-	console.log('pula')
-	var cardType = $.payment.cardType($('.cc-number').val());
+
+jQuery(function($) {
   $('[data-numeric]').payment('restrictNumeric');
   $('.cc-number').payment('formatCardNumber');
   $('.cc-exp').payment('formatCardExpiry');
@@ -41,1149 +174,471 @@ function isValid () {
     this.parent('.form-group').toggleClass('has-no-error', !erred);
     return this;
   };
-	// if (!cardType) {
-	// 	throw new Error ('card invalid');
-	// }
-	$('.cc-number').toggleInputError(!$.payment.validateCardNumber($('.cc-number').val()));
-	$('.cc-exp').toggleInputError(!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
-	$('.cc-cvc').toggleInputError(!$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
-
-	//- Determina tipul cardului
-	switch(cardType) {
-		case 'visa':
-			$('.cc-brand').html('<i class="fa fa-cc-visa credit-card"></i>')
-			break;
-		case 'mastercard':
-			$('.cc-brand').html('<i class="fa fa-cc-mastercard credit-card"></i>')
-			break;
-		case 'discover':
-			$('.cc-brand').html('<i class="fa fa-cc-discover credit-card"></i>')
-			break;
-		case 'amex':
-			$('.cc-brand').html('<i class="fa fa-cc-amex credit-card"></i>')
-			break;
-		// American Express
-		// Diners Club
-		// UnionPay
-		// JCB
-		// Visa Electron
-		// Maestro
-		// Forbrugsforeningen
-		// Dankort
-		// case n:
-		// code block
-		// break;
-		default:
-			console.log(0);
-		}
-	// $('.cc-brand').text(cardType);
-
-
-
-
-	var cnp = $('.cnp').val()
-	$('.cnp').toggleInputError(!cnpValid(cnp));
-	$('.mail').toggleInputError(!$('.mail').val());
-	$('.pwd1').toggleInputError(!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd1').val().length>=8));
-	$('.pwd2').toggleInputError(!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd2').val().length>=8));
-	$('.nume').toggleInputError(!$('.nume').val());
-	$('.prenume').toggleInputError(!$('.prenume').val());
-	$('.telefon').toggleInputError(!$('.telefon').val());
-	$('.adresa').toggleInputError(!$('.adresa').val());
-	$('.validation').removeClass('text-danger text-success');
-	$('.validation').addClass($('.has-error').length ? 'text-danger' : 'text-success');
-	$('.terms').toggleInputError(!$('.terms').val());
-	if (
-	!$('.mail').val() || !($('.pwd2').val() === $('.pwd1').val()&&$('.pwd1').val().length>=8) || !($('.pwd2').val() === $('.pwd1').val()&&$('.pwd2').val().length>=8) || !$('.nume').val() || !cnpValid(cnp) || !$('.prenume').val() || !$('.telefon').val() || !$('.adresa').val() || !$('.terms').val() || !$.payment.validateCardNumber($('.cc-number').val()) || !$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')) || !$.payment.validateCardCVC($('.cc-cvc').val(), cardType)
-) {
-	return false;
-}
-};
-
-jQuery(function($) {
   // $('.username').focusout(function(){$('.username').toggleInputError(!$('.username').val())));
+  $('form').submit(function(e) {
+    var cnp = $('.cnp').val()
+    if(!(!cnpValid($('.cnp').val())||!$('.mail').val()||!($('.pwd2').val() === $('.pwd1').val())||!$('.pwd1').val().length>=8||!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd2').val().length>=8)||!$('.nume').val()||!$('.prenume').val()||!$('.telefon').val()||!$('.adresa').val()||!$('.terms').val()))
+      $('form').unbind('submit');
+    else
+      e.preventDefault();
 
-});
+
+    $()
+    var cardType = $.payment.cardType($('.cc-number').val());
+    $('.cc-number').toggleInputError(!$.payment.validateCardNumber($('.cc-number').val()));
+    $('.cc-exp').toggleInputError(!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
+    $('.cc-cvc').toggleInputError(!$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
+
+    //- Determina tipul cardului
+    switch(cardType) {
+      case 'visa':
+        $('.cc-brand').html('<i class="fa fa-cc-visa credit-card"></i>')
+        break;
+      case 'mastercard':
+        $('.cc-brand').html('<i class="fa fa-cc-mastercard credit-card"></i>')
+        break;
+      case 'discover':
+        $('.cc-brand').html('<i class="fa fa-cc-discover credit-card"></i>')
+        break;
+      case 'amex':
+        $('.cc-brand').html('<i class="fa fa-cc-amex credit-card"></i>')
+        break;
+      // American Express
+      // Diners Club
+      // UnionPay
+      // JCB
+      // Visa Electron
+      // Maestro
+      // Forbrugsforeningen
+      // Dankort
+      // case n:
+      // code block
+      // break;
+      default:
+        console.log(0);
+      }
+    // $('.cc-brand').text(cardType);
+    $('.cnp').toggleInputError(!cnpValid(cnp));
+    $('.mail').toggleInputError(!$('.mail').val());
+    $('.pwd1').toggleInputError(!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd1').val().length>=8));
+    $('.pwd2').toggleInputError(!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd2').val().length>=8));
+    $('.nume').toggleInputError(!$('.nume').val());
+    $('.prenume').toggleInputError(!$('.prenume').val());
+    $('.telefon').toggleInputError(!$('.telefon').val());
+    $('.adresa').toggleInputError(!$('.adresa').val());
+    $('.validation').removeClass('text-danger text-success');
+    $('.validation').addClass($('.has-error').length ? 'text-danger' : 'text-success');
+    $('.terms').toggleInputError(!$('.terms').val());
+
+
+  });
+
+});   
+
 	</script>
-	<div class="container">
+
+<div class="container">
   <div class="content">
-		<div class="row">
-			<div class="col-sm-6 col-sm-offset-3">
-				<div id="logo">
-
-				<a href="/">
-								<img id="logo" src="../assets/omnifee.png" class="login-logo"/>
-						</a>
-				</div>
-    <h2>
-      Cont Nou
-      <i class="fa fa-lock">
-      </i>
-    </h2>
-    <form novalidate="" autocomplete="on" onsubmit="return isValid()" method="POST" action='/signup'>
-      <div class="form-group">
-        <label for="mail" class="control-label">
-          Adresa de E-Mail
-        </label>
-        <input type="text" placeholder="Ex: gheorghe.gheorghescu@mail.com" required="true" name="email" class="mail input-lg form-control"/>
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Cont Nou <i class="fa fa-lock"></i></h2>
+        <form novalidate="" autocomplete="on" method="POST">
+          <div class="form-group">
+            <label for="mail" class="control-label">Adresa de E-Mail</label>
+            <input type="text" placeholder="Ex: gheorghe.gheorghescu@mail.com" required="" class="mail input-lg form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="pwd1" class="control-label">Parola</label>
+            <input type="password" placeholder="" required="" class="pwd1 input-lg form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="pwd2" class="control-label">Repetati parola</label>
+            <input type="password" placeholder="" required="" class="pwd2 input-lg form-control"/>
+          </div>
+          <h3>Date Personale <i class="fa fa-user"> </i></h3>
+          <div class="form-group">
+            <label for="nume" class="control-label">Nume</label>
+            <input type="text" placeholder="Ex: Gheorghescu" required="" class="nume input-lg form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="prenume" class="control-label">Preume</label>
+            <input type="text" placeholder="Ex: Gheorghe" required="" class="prenume input-lg form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="cnp" class="control-label">CNP</label>
+            <input type="text" placeholder="Ex: 1890326419963" required="" class="cnp input-lg form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="oras" class="control-label">Oras/Judet</label><br/>
+            <select class="oras">
+              <option value="Abrud">Abrud</option>
+              <option value="Adjud">Adjud</option>
+              <option value="Agnita">Agnita</option>
+              <option value="Aiud">Aiud</option>
+              <option value="Alba Iulia">Alba Iulia</option>
+              <option value="Aleșd">Aleșd</option>
+              <option value="Alexandria">Alexandria</option>
+              <option value="Amara">Amara</option>
+              <option value="Anina">Anina</option>
+              <option value="Aninoasa">Aninoasa</option>
+              <option value="Arad">Arad</option>
+              <option value="Ardud">Ardud</option>
+              <option value="Avrig">Avrig</option>
+              <option value="Azuga">Azuga</option>
+              <option value="Babadag">Babadag</option>
+              <option value="Băbeni">Băbeni</option>
+              <option value="Bacău">Bacău</option>
+              <option value="Baia de Aramă">Baia de Aramă</option>
+              <option value="Baia de Arieș">Baia de Arieș</option>
+              <option value="Baia Mare">Baia Mare</option>
+              <option value="Baia Sprie">Baia Sprie</option>
+              <option value="Băicoi">Băicoi</option>
+              <option value="Băile Govora">Băile Govora</option>
+              <option value="Băile Herculane">Băile Herculane</option>
+              <option value="Băile Olănești">Băile Olănești</option>
+              <option value="Băile Tușnad">Băile Tușnad</option>
+              <option value="Băilești">Băilești</option>
+              <option value="Bălan">Bălan</option>
+              <option value="Bălcești">Bălcești</option>
+              <option value="Balș">Balș</option>
+              <option value="Băneasa">Băneasa</option>
+              <option value="Baraolt">Baraolt</option>
+              <option value="Bârlad">Bârlad</option>
+              <option value="Bechet">Bechet</option>
+              <option value="Beclean">Beclean</option>
+              <option value="Beiuș">Beiuș</option>
+              <option value="Berbești">Berbești</option>
+              <option value="Berești">Berești</option>
+              <option value="Bicaz">Bicaz</option>
+              <option value="Bistrița">Bistrița</option>
+              <option value="Blaj">Blaj</option>
+              <option value="Bocșa">Bocșa</option>
+              <option value="Boldești-Scăeni">Boldești-Scăeni</option>
+              <option value="Bolintin-Vale">Bolintin-Vale</option>
+              <option value="Borșa">Borșa</option>
+              <option value="Borsec">Borsec</option>
+              <option value="Botoșani">Botoșani</option>
+              <option value="Brad">Brad</option>
+              <option value="Bragadiru">Bragadiru</option>
+              <option value="Brăila">Brăila</option>
+              <option value="Brașov">Brașov</option>
+              <option value="Breaza">Breaza</option>
+              <option value="Brezoi">Brezoi</option>
+              <option value="Broșteni">Broșteni</option>
+              <option value="Bucecea">Bucecea</option>
+              <option value="București">București</option>
+              <option value="Budești">Budești</option>
+              <option value="Buftea">Buftea</option>
+              <option value="Buhuși">Buhuși</option>
+              <option value="Bumbești-Jiu">Bumbești-Jiu</option>
+              <option value="Bușteni">Bușteni</option>
+              <option value="Buzău">Buzău</option>
+              <option value="Buziaș">Buziaș</option>
+              <option value="Cajvana">Cajvana</option>
+              <option value="Calafat">Calafat</option>
+              <option value="Călan">Călan</option>
+              <option value="Călărași">Călărași</option>
+              <option value="Călimănești">Călimănești</option>
+              <option value="Câmpeni">Câmpeni</option>
+              <option value="Câmpia Turzii">Câmpia Turzii</option>
+              <option value="Câmpina">Câmpina</option>
+              <option value="Câmpulung Moldovenesc">Câmpulung Moldovenesc</option>
+              <option value="Câmpulung">Câmpulung</option>
+              <option value="Caracal">Caracal</option>
+              <option value="Caransebeș">Caransebeș</option>
+              <option value="Carei">Carei</option>
+              <option value="Cavnic">Cavnic</option>
+              <option value="Căzănești">Căzănești</option>
+              <option value="Cehu Silvaniei">Cehu Silvaniei</option>
+              <option value="Cernavodă">Cernavodă</option>
+              <option value="Chișineu-Criș">Chișineu-Criș</option>
+              <option value="Chitila">Chitila</option>
+              <option value="Ciacova">Ciacova</option>
+              <option value="Cisnădie">Cisnădie</option>
+              <option value="Cluj-Napoca">Cluj-Napoca</option>
+              <option value="Codlea">Codlea</option>
+              <option value="Comănești">Comănești</option>
+              <option value="Comarnic">Comarnic</option>
+              <option value="Constanța">Constanța</option>
+              <option value="Copșa Mică">Copșa Mică</option>
+              <option value="Corabia">Corabia</option>
+              <option value="Costești">Costești</option>
+              <option value="Covasna">Covasna</option>
+              <option value="Craiova">Craiova</option>
+              <option value="Cristuru Secuiesc">Cristuru Secuiesc</option>
+              <option value="Cugir">Cugir</option>
+              <option value="Curtea de Argeș">Curtea de Argeș</option>
+              <option value="Curtici">Curtici</option>
+              <option value="Dăbuleni">Dăbuleni</option>
+              <option value="Darabani">Darabani</option>
+              <option value="Dărmănești">Dărmănești</option>
+              <option value="Dej">Dej</option>
+              <option value="Deta">Deta</option>
+              <option value="Deva">Deva</option>
+              <option value="Dolhasca">Dolhasca</option>
+              <option value="Dorohoi">Dorohoi</option>
+              <option value="Drăgănești-Olt">Drăgănești-Olt</option>
+              <option value="Drăgășani">Drăgășani</option>
+              <option value="Dragomirești">Dragomirești</option>
+              <option value="Drobeta-Turnu Severin">Drobeta-Turnu Severin</option>
+              <option value="Dumbrăveni">Dumbrăveni</option>
+              <option value="Eforie">Eforie</option>
+              <option value="Făgăraș">Făgăraș</option>
+              <option value="Făget">Făget</option>
+              <option value="Fălticeni">Fălticeni</option>
+              <option value="Făurei">Făurei</option>
+              <option value="Fetești">Fetești</option>
+              <option value="Fieni">Fieni</option>
+              <option value="Fierbinți-Târg">Fierbinți-Târg</option>
+              <option value="Filiași">Filiași</option>
+              <option value="Flămânzi">Flămânzi</option>
+              <option value="Focșani">Focșani</option>
+              <option value="Frasin">Frasin</option>
+              <option value="Fundulea">Fundulea</option>
+              <option value="Găești">Găești</option>
+              <option value="Galați">Galați</option>
+              <option value="Gătaia">Gătaia</option>
+              <option value="Geoagiu">Geoagiu</option>
+              <option value="Gheorgheni">Gheorgheni</option>
+              <option value="Gherla">Gherla</option>
+              <option value="Ghimbav">Ghimbav</option>
+              <option value="Giurgiu">Giurgiu</option>
+              <option value="Gura Humorului">Gura Humorului</option>
+              <option value="Hârlău">Hârlău</option>
+              <option value="Hârșova">Hârșova</option>
+              <option value="Hațeg">Hațeg</option>
+              <option value="Horezu">Horezu</option>
+              <option value="Huedin">Huedin</option>
+              <option value="Hunedoara">Hunedoara</option>
+              <option value="Huși">Huși</option>
+              <option value="Ianca">Ianca</option>
+              <option value="Iași">Iași</option>
+              <option value="Iernut">Iernut</option>
+              <option value="Ineu">Ineu</option>
+              <option value="Însurăței">Însurăței</option>
+              <option value="Întorsura Buzăului">Întorsura Buzăului</option>
+              <option value="Isaccea">Isaccea</option>
+              <option value="Jibou">Jibou</option>
+              <option value="Jimbolia">Jimbolia</option>
+              <option value="Lehliu Gară">Lehliu Gară</option>
+              <option value="Lipova">Lipova</option>
+              <option value="Liteni">Liteni</option>
+              <option value="Livada">Livada</option>
+              <option value="Luduș">Luduș</option>
+              <option value="Lugoj">Lugoj</option>
+              <option value="Lupeni">Lupeni</option>
+              <option value="Măcin">Măcin</option>
+              <option value="Măgurele">Măgurele</option>
+              <option value="Mangalia">Mangalia</option>
+              <option value="Mărășești">Mărășești</option>
+              <option value="Marghita">Marghita</option>
+              <option value="Medgidia">Medgidia</option>
+              <option value="Mediaș">Mediaș</option>
+              <option value="Miercurea Ciuc">Miercurea Ciuc</option>
+              <option value="Miercurea Nirajului">Miercurea Nirajului</option>
+              <option value="Miercurea Sibiului">Miercurea Sibiului</option>
+              <option value="Mihăilești">Mihăilești</option>
+              <option value="Milișăuți">Milișăuți</option>
+              <option value="Mioveni">Mioveni</option>
+              <option value="Mizil">Mizil</option>
+              <option value="Moinești">Moinești</option>
+              <option value="Moldova Nouă">Moldova Nouă</option>
+              <option value="Moreni">Moreni</option>
+              <option value="Motru">Motru</option>
+              <option value="Murfatlar">Murfatlar</option>
+              <option value="Murgeni">Murgeni</option>
+              <option value="Nădlac">Nădlac</option>
+              <option value="Năsăud">Năsăud</option>
+              <option value="Năvodari">Năvodari</option>
+              <option value="Negrești">Negrești</option>
+              <option value="Negrești-Oaș">Negrești-Oaș</option>
+              <option value="Negru Vodă">Negru Vodă</option>
+              <option value="Nehoiu">Nehoiu</option>
+              <option value="Novaci">Novaci</option>
+              <option value="Nucet">Nucet</option>
+              <option value="Ocna Mureș">Ocna Mureș</option>
+              <option value="Ocna Sibiului">Ocna Sibiului</option>
+              <option value="Ocnele Mari">Ocnele Mari</option>
+              <option value="Odobești">Odobești</option>
+              <option value="Odorheiu Secuiesc">Odorheiu Secuiesc</option>
+              <option value="Oltenița">Oltenița</option>
+              <option value="Onești">Onești</option>
+              <option value="Oradea">Oradea</option>
+              <option value="Orăștie">Orăștie</option>
+              <option value="Oravița">Oravița</option>
+              <option value="Orșova">Orșova</option>
+              <option value="Oțelu Roșu">Oțelu Roșu</option>
+              <option value="Otopeni">Otopeni</option>
+              <option value="Ovidiu">Ovidiu</option>
+              <option value="Panciu">Panciu</option>
+              <option value="Pâncota">Pâncota</option>
+              <option value="Pantelimon">Pantelimon</option>
+              <option value="Pașcani">Pașcani</option>
+              <option value="Pătârlagele">Pătârlagele</option>
+              <option value="Pecica">Pecica</option>
+              <option value="Petrila">Petrila</option>
+              <option value="Petroșani">Petroșani</option>
+              <option value="Piatra Neamț">Piatra Neamț</option>
+              <option value="Piatra-Olt">Piatra-Olt</option>
+              <option value="Pitești">Pitești</option>
+              <option value="Ploiești">Ploiești</option>
+              <option value="Plopeni">Plopeni</option>
+              <option value="Podu Iloaiei">Podu Iloaiei</option>
+              <option value="Pogoanele">Pogoanele</option>
+              <option value="Popești-Leordeni">Popești-Leordeni</option>
+              <option value="Potcoava">Potcoava</option>
+              <option value="Predeal">Predeal</option>
+              <option value="Pucioasa">Pucioasa</option>
+              <option value="Răcari">Răcari</option>
+              <option value="Rădăuți">Rădăuți</option>
+              <option value="Râmnicu Sărat">Râmnicu Sărat</option>
+              <option value="Râmnicu Vâlcea">Râmnicu Vâlcea</option>
+              <option value="Râșnov">Râșnov</option>
+              <option value="Recaș">Recaș</option>
+              <option value="Reghin">Reghin</option>
+              <option value="Reșița">Reșița</option>
+              <option value="Roman">Roman</option>
+              <option value="Roșiorii de Vede">Roșiorii de Vede</option>
+              <option value="Rovinari">Rovinari</option>
+              <option value="Roznov">Roznov</option>
+              <option value="Rupea">Rupea</option>
+              <option value="Săcele">Săcele</option>
+              <option value="Săcueni">Săcueni</option>
+              <option value="Salcea">Salcea</option>
+              <option value="Săliște">Săliște</option>
+              <option value="Săliștea de Sus">Săliștea de Sus</option>
+              <option value="Salonta">Salonta</option>
+              <option value="Sângeorgiu de Pădure">Sângeorgiu de Pădure</option>
+              <option value="Sângeorz-Băi">Sângeorz-Băi</option>
+              <option value="Sânnicolau Mare">Sânnicolau Mare</option>
+              <option value="Sântana">Sântana</option>
+              <option value="Sărmașu">Sărmașu</option>
+              <option value="Satu Mare">Satu Mare</option>
+              <option value="Săveni">Săveni</option>
+              <option value="Scornicești">Scornicești</option>
+              <option value="Sebeș">Sebeș</option>
+              <option value="Sebiș">Sebiș</option>
+              <option value="Segarcea">Segarcea</option>
+              <option value="Seini">Seini</option>
+              <option value="Sfântu Gheorghe">Sfântu Gheorghe</option>
+              <option value="Sibiu">Sibiu</option>
+              <option value="Sighetu Marmației">Sighetu Marmației</option>
+              <option value="Sighișoara">Sighișoara</option>
+              <option value="Simeria">Simeria</option>
+              <option value="Șimleu Silvaniei">Șimleu Silvaniei</option>
+              <option value="Sinaia">Sinaia</option>
+              <option value="Siret">Siret</option>
+              <option value="Slănic">Slănic</option>
+              <option value="Slănic-Moldova">Slănic-Moldova</option>
+              <option value="Slatina">Slatina</option>
+              <option value="Slobozia">Slobozia</option>
+              <option value="Solca">Solca</option>
+              <option value="Șomcuta Mare">Șomcuta Mare</option>
+              <option value="Sovata">Sovata</option>
+              <option value="Ștefănești, Argeș">Ștefănești, Argeș</option>
+              <option value="Ștefănești, Botoșani">Ștefănești, Botoșani</option>
+              <option value="Ștei">Ștei</option>
+              <option value="Strehaia">Strehaia</option>
+              <option value="Suceava">Suceava</option>
+              <option value="Sulina">Sulina</option>
+              <option value="Tălmaciu">Tălmaciu</option>
+              <option value="Țăndărei">Țăndărei</option>
+              <option value="Târgoviște">Târgoviște</option>
+              <option value="Târgu Bujor">Târgu Bujor</option>
+              <option value="Târgu Cărbunești">Târgu Cărbunești</option>
+              <option value="Târgu Frumos">Târgu Frumos</option>
+              <option value="Târgu Jiu">Târgu Jiu</option>
+              <option value="Târgu Lăpuș">Târgu Lăpuș</option>
+              <option value="Târgu Mureș">Târgu Mureș</option>
+              <option value="Târgu Neamț">Târgu Neamț</option>
+              <option value="Târgu Ocna">Târgu Ocna</option>
+              <option value="Târgu Secuiesc">Târgu Secuiesc</option>
+              <option value="Târnăveni">Târnăveni</option>
+              <option value="Tășnad">Tășnad</option>
+              <option value="Tăuții-Măgherăuș">Tăuții-Măgherăuș</option>
+              <option value="Techirghiol">Techirghiol</option>
+              <option value="Tecuci">Tecuci</option>
+              <option value="Teiuș">Teiuș</option>
+              <option value="Țicleni">Țicleni</option>
+              <option value="Timișoara">Timișoara</option>
+              <option value="Tismana">Tismana</option>
+              <option value="Titu">Titu</option>
+              <option value="Toplița">Toplița</option>
+              <option value="Topoloveni">Topoloveni</option>
+              <option value="Tulcea">Tulcea</option>
+              <option value="Turceni">Turceni</option>
+              <option value="Turda">Turda</option>
+              <option value="Turnu Măgurele">Turnu Măgurele</option>
+              <option value="Ulmeni">Ulmeni</option>
+              <option value="Ungheni">Ungheni</option>
+              <option value="Uricani">Uricani</option>
+              <option value="Urlați">Urlați</option>
+              <option value="Urziceni">Urziceni</option>
+              <option value="Valea lui Mihai">Valea lui Mihai</option>
+              <option value="Vălenii de Munte">Vălenii de Munte</option>
+              <option value="Vânju Mare">Vânju Mare</option>
+              <option value="Vașcău">Vașcău</option>
+              <option value="Vaslui">Vaslui</option>
+              <option value="Vatra Dornei">Vatra Dornei</option>
+              <option value="Vicovu de Sus">Vicovu de Sus</option>
+              <option value="Victoria">Victoria</option>
+              <option value="Videle">Videle</option>
+              <option value="Vișeu de Sus">Vișeu de Sus</option>
+              <option value="Vlăhița">Vlăhița</option>
+              <option value="Voluntari">Voluntari</option>
+              <option value="Vulcan">Vulcan</option>
+              <option value="Zalău">Zalău</option>
+              <option value="Zărnești">Zărnești</option>
+              <option value="Zimnicea">Zimnicea</option>
+              <option value="Zlatna">Zlatna</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="adresa" class="control-label">Adresa</label>
+            <input type="text" placeholder="Ex: Strada Timpului Nr. 12 Bl. 24 Ap. 3" required="" class="adresa input-lg form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="telefon" class="control-label">Numar de Telefon</label>
+            <input type="text" placeholder="Ex: 0721234567 " required="" class="telefon input-lg form-control"/>
+          </div>
+          <h3>Metoda de Facturare <i class="fa fa-money"> </i></h3>
+          <div class="form-group">
+            <label for="cc-number" class="control-label">Card<small class="text-muted"> <span class="cc-brand"></span> </small></label>
+            <input id="cc-number" type="text" pattern="d*" autocomplete="cc-number" placeholder="Card number" required="" class="input-lg form-control cc-number"/>
+          </div>
+          <div class="form-group">
+            <label for="cc-exp" class="control-label">Expiry formatting</label>
+            <input id="cc-exp" type="text" pattern="d*" autocomplete="cc-exp" placeholder="Expires MM/YY" required="" class="input-lg form-control cc-exp"/>
+          </div>
+          <div class="form-group">
+            <label for="cc-cvc" class="control-label">CVC formatting</label>
+            <input id="cc-cvc" type="text" pattern="d*" autocomplete="off" placeholder="Security code" required="" class="input-lg form-control cc-cvc"/>
+          </div>
+          <input type="checkbox" name="terms" value="terms" class="terms"/> Am citit si sunt de acord cu <a href="/terms-and-agreements/">termenii si conditiile</a>.<br/><br/>
+          <button type="submit" class="btn btn-lg btn-primary">Creeaza cont</button>
+          <h2 class="validation"></h2>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="pwd1" class="control-label">
-          Parola
-        </label>
-        <input type="password" placeholder="" required="true" name="password" class="pwd1 input-lg form-control"/>
+      <div class="col-sm-1 hidden-xs"></div>
+      <div class="col-sm-5 hidden-xs">
+        <h2 class="center">Avantajele contului omnifee</h2>
+        <div class="row reasonsStripe">
+          <div class="i fa fa-clock-o fa-5x"></div>
+          <h2>Rapid</h2>
+          <div class="small">Recupereaza-ti timpul pierdut. Nu mai sta la cozi.</div>
+        </div>
+        <div class="row reasonsStripe">
+          <div class="i fa fa-lock fa-5x"></div>
+          <h2>Sigur</h2>
+          <div class="small">Siguranța clienților este prioritară.</div>
+        </div>
+        <div class="row reasonsStripe">
+          <div class="i fa fa-globe fa-5x"></div>
+          <h2>Oriunde. Oricand</h2>
+          <div class="small">Plătești facturile de acasă sau de pe drum. Mobil, usor și flexibil.</div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="pwd2" class="control-label">
-          Repetati parola
-        </label>
-        <input type="password" placeholder="" required="true" class="pwd2 input-lg form-control"/>
-      </div>
-      <h3>
-        Date Personale
-        <i class="fa fa-user">
-
-        </i>
-      </h3>
-      <div class="form-group">
-        <label for="nume" class="control-label">
-          Nume
-        </label>
-        <input type="text" placeholder="Ex: Gheorghescu" required="true" name="familyName" class="nume input-lg form-control"/>
-      </div>
-      <div class="form-group">
-        <label for="prenume" class="control-label">
-          Preume
-        </label>
-        <input type="text" placeholder="Ex: Gheorghe" required="true" name="name" class="prenume input-lg form-control"/>
-      </div>
-      <div class="form-group">
-        <label for="cnp" class="control-label">
-          CNP
-        </label>
-        <input type="text" placeholder="Ex: 1890326419963" required="true" name="cnp" class="cnp input-lg form-control"/>
-      </div>
-      <div class="form-group">
-        <label for="oras" class="control-label">
-          Oras/Judet
-        </label>
-        <select class="oras">
-          <option value="Abrud">
-            Abrud
-          </option>
-          <option value="Adjud">
-            Adjud
-          </option>
-          <option value="Agnita">
-            Agnita
-          </option>
-          <option value="Aiud">
-            Aiud
-          </option>
-          <option value="Alba Iulia">
-            Alba Iulia
-          </option>
-          <option value="Aleșd">
-            Aleșd
-          </option>
-          <option value="Alexandria">
-            Alexandria
-          </option>
-          <option value="Amara">
-            Amara
-          </option>
-          <option value="Anina">
-            Anina
-          </option>
-          <option value="Aninoasa">
-            Aninoasa
-          </option>
-          <option value="Arad">
-            Arad
-          </option>
-          <option value="Ardud">
-            Ardud
-          </option>
-          <option value="Avrig">
-            Avrig
-          </option>
-          <option value="Azuga">
-            Azuga
-          </option>
-          <option value="Babadag">
-            Babadag
-          </option>
-          <option value="Băbeni">
-            Băbeni
-          </option>
-          <option value="Bacău">
-            Bacău
-          </option>
-          <option value="Baia de Aramă">
-            Baia de Aramă
-          </option>
-          <option value="Baia de Arieș">
-            Baia de Arieș
-          </option>
-          <option value="Baia Mare">
-            Baia Mare
-          </option>
-          <option value="Baia Sprie">
-            Baia Sprie
-          </option>
-          <option value="Băicoi">
-            Băicoi
-          </option>
-          <option value="Băile Govora">
-            Băile Govora
-          </option>
-          <option value="Băile Herculane">
-            Băile Herculane
-          </option>
-          <option value="Băile Olănești">
-            Băile Olănești
-          </option>
-          <option value="Băile Tușnad">
-            Băile Tușnad
-          </option>
-          <option value="Băilești">
-            Băilești
-          </option>
-          <option value="Bălan">
-            Bălan
-          </option>
-          <option value="Bălcești">
-            Bălcești
-          </option>
-          <option value="Balș">
-            Balș
-          </option>
-          <option value="Băneasa">
-            Băneasa
-          </option>
-          <option value="Baraolt">
-            Baraolt
-          </option>
-          <option value="Bârlad">
-            Bârlad
-          </option>
-          <option value="Bechet">
-            Bechet
-          </option>
-          <option value="Beclean">
-            Beclean
-          </option>
-          <option value="Beiuș">
-            Beiuș
-          </option>
-          <option value="Berbești">
-            Berbești
-          </option>
-          <option value="Berești">
-            Berești
-          </option>
-          <option value="Bicaz">
-            Bicaz
-          </option>
-          <option value="Bistrița">
-            Bistrița
-          </option>
-          <option value="Blaj">
-            Blaj
-          </option>
-          <option value="Bocșa">
-            Bocșa
-          </option>
-          <option value="Boldești-Scăeni">
-            Boldești-Scăeni
-          </option>
-          <option value="Bolintin-Vale">
-            Bolintin-Vale
-          </option>
-          <option value="Borșa">
-            Borșa
-          </option>
-          <option value="Borsec">
-            Borsec
-          </option>
-          <option value="Botoșani">
-            Botoșani
-          </option>
-          <option value="Brad">
-            Brad
-          </option>
-          <option value="Bragadiru">
-            Bragadiru
-          </option>
-          <option value="Brăila">
-            Brăila
-          </option>
-          <option value="Brașov">
-            Brașov
-          </option>
-          <option value="Breaza">
-            Breaza
-          </option>
-          <option value="Brezoi">
-            Brezoi
-          </option>
-          <option value="Broșteni">
-            Broșteni
-          </option>
-          <option value="Bucecea">
-            Bucecea
-          </option>
-          <option value="București">
-            București
-          </option>
-          <option value="Budești">
-            Budești
-          </option>
-          <option value="Buftea">
-            Buftea
-          </option>
-          <option value="Buhuși">
-            Buhuși
-          </option>
-          <option value="Bumbești-Jiu">
-            Bumbești-Jiu
-          </option>
-          <option value="Bușteni">
-            Bușteni
-          </option>
-          <option value="Buzău">
-            Buzău
-          </option>
-          <option value="Buziaș">
-            Buziaș
-          </option>
-          <option value="Cajvana">
-            Cajvana
-          </option>
-          <option value="Calafat">
-            Calafat
-          </option>
-          <option value="Călan">
-            Călan
-          </option>
-          <option value="Călărași">
-            Călărași
-          </option>
-          <option value="Călimănești">
-            Călimănești
-          </option>
-          <option value="Câmpeni">
-            Câmpeni
-          </option>
-          <option value="Câmpia Turzii">
-            Câmpia Turzii
-          </option>
-          <option value="Câmpina">
-            Câmpina
-          </option>
-          <option value="Câmpulung Moldovenesc">
-            Câmpulung Moldovenesc
-          </option>
-          <option value="Câmpulung">
-            Câmpulung
-          </option>
-          <option value="Caracal">
-            Caracal
-          </option>
-          <option value="Caransebeș">
-            Caransebeș
-          </option>
-          <option value="Carei">
-            Carei
-          </option>
-          <option value="Cavnic">
-            Cavnic
-          </option>
-          <option value="Căzănești">
-            Căzănești
-          </option>
-          <option value="Cehu Silvaniei">
-            Cehu Silvaniei
-          </option>
-          <option value="Cernavodă">
-            Cernavodă
-          </option>
-          <option value="Chișineu-Criș">
-            Chișineu-Criș
-          </option>
-          <option value="Chitila">
-            Chitila
-          </option>
-          <option value="Ciacova">
-            Ciacova
-          </option>
-          <option value="Cisnădie">
-            Cisnădie
-          </option>
-          <option value="Cluj-Napoca">
-            Cluj-Napoca
-          </option>
-          <option value="Codlea">
-            Codlea
-          </option>
-          <option value="Comănești">
-            Comănești
-          </option>
-          <option value="Comarnic">
-            Comarnic
-          </option>
-          <option value="Constanța">
-            Constanța
-          </option>
-          <option value="Copșa Mică">
-            Copșa Mică
-          </option>
-          <option value="Corabia">
-            Corabia
-          </option>
-          <option value="Costești">
-            Costești
-          </option>
-          <option value="Covasna">
-            Covasna
-          </option>
-          <option value="Craiova">
-            Craiova
-          </option>
-          <option value="Cristuru Secuiesc">
-            Cristuru Secuiesc
-          </option>
-          <option value="Cugir">
-            Cugir
-          </option>
-          <option value="Curtea de Argeș">
-            Curtea de Argeș
-          </option>
-          <option value="Curtici">
-            Curtici
-          </option>
-          <option value="Dăbuleni">
-            Dăbuleni
-          </option>
-          <option value="Darabani">
-            Darabani
-          </option>
-          <option value="Dărmănești">
-            Dărmănești
-          </option>
-          <option value="Dej">
-            Dej
-          </option>
-          <option value="Deta">
-            Deta
-          </option>
-          <option value="Deva">
-            Deva
-          </option>
-          <option value="Dolhasca">
-            Dolhasca
-          </option>
-          <option value="Dorohoi">
-            Dorohoi
-          </option>
-          <option value="Drăgănești-Olt">
-            Drăgănești-Olt
-          </option>
-          <option value="Drăgășani">
-            Drăgășani
-          </option>
-          <option value="Dragomirești">
-            Dragomirești
-          </option>
-          <option value="Drobeta-Turnu Severin">
-            Drobeta-Turnu Severin
-          </option>
-          <option value="Dumbrăveni">
-            Dumbrăveni
-          </option>
-          <option value="Eforie">
-            Eforie
-          </option>
-          <option value="Făgăraș">
-            Făgăraș
-          </option>
-          <option value="Făget">
-            Făget
-          </option>
-          <option value="Fălticeni">
-            Fălticeni
-          </option>
-          <option value="Făurei">
-            Făurei
-          </option>
-          <option value="Fetești">
-            Fetești
-          </option>
-          <option value="Fieni">
-            Fieni
-          </option>
-          <option value="Fierbinți-Târg">
-            Fierbinți-Târg
-          </option>
-          <option value="Filiași">
-            Filiași
-          </option>
-          <option value="Flămânzi">
-            Flămânzi
-          </option>
-          <option value="Focșani">
-            Focșani
-          </option>
-          <option value="Frasin">
-            Frasin
-          </option>
-          <option value="Fundulea">
-            Fundulea
-          </option>
-          <option value="Găești">
-            Găești
-          </option>
-          <option value="Galați">
-            Galați
-          </option>
-          <option value="Gătaia">
-            Gătaia
-          </option>
-          <option value="Geoagiu">
-            Geoagiu
-          </option>
-          <option value="Gheorgheni">
-            Gheorgheni
-          </option>
-          <option value="Gherla">
-            Gherla
-          </option>
-          <option value="Ghimbav">
-            Ghimbav
-          </option>
-          <option value="Giurgiu">
-            Giurgiu
-          </option>
-          <option value="Gura Humorului">
-            Gura Humorului
-          </option>
-          <option value="Hârlău">
-            Hârlău
-          </option>
-          <option value="Hârșova">
-            Hârșova
-          </option>
-          <option value="Hațeg">
-            Hațeg
-          </option>
-          <option value="Horezu">
-            Horezu
-          </option>
-          <option value="Huedin">
-            Huedin
-          </option>
-          <option value="Hunedoara">
-            Hunedoara
-          </option>
-          <option value="Huși">
-            Huși
-          </option>
-          <option value="Ianca">
-            Ianca
-          </option>
-          <option value="Iași">
-            Iași
-          </option>
-          <option value="Iernut">
-            Iernut
-          </option>
-          <option value="Ineu">
-            Ineu
-          </option>
-          <option value="Însurăței">
-            Însurăței
-          </option>
-          <option value="Întorsura Buzăului">
-            Întorsura Buzăului
-          </option>
-          <option value="Isaccea">
-            Isaccea
-          </option>
-          <option value="Jibou">
-            Jibou
-          </option>
-          <option value="Jimbolia">
-            Jimbolia
-          </option>
-          <option value="Lehliu Gară">
-            Lehliu Gară
-          </option>
-          <option value="Lipova">
-            Lipova
-          </option>
-          <option value="Liteni">
-            Liteni
-          </option>
-          <option value="Livada">
-            Livada
-          </option>
-          <option value="Luduș">
-            Luduș
-          </option>
-          <option value="Lugoj">
-            Lugoj
-          </option>
-          <option value="Lupeni">
-            Lupeni
-          </option>
-          <option value="Măcin">
-            Măcin
-          </option>
-          <option value="Măgurele">
-            Măgurele
-          </option>
-          <option value="Mangalia">
-            Mangalia
-          </option>
-          <option value="Mărășești">
-            Mărășești
-          </option>
-          <option value="Marghita">
-            Marghita
-          </option>
-          <option value="Medgidia">
-            Medgidia
-          </option>
-          <option value="Mediaș">
-            Mediaș
-          </option>
-          <option value="Miercurea Ciuc">
-            Miercurea Ciuc
-          </option>
-          <option value="Miercurea Nirajului">
-            Miercurea Nirajului
-          </option>
-          <option value="Miercurea Sibiului">
-            Miercurea Sibiului
-          </option>
-          <option value="Mihăilești">
-            Mihăilești
-          </option>
-          <option value="Milișăuți">
-            Milișăuți
-          </option>
-          <option value="Mioveni">
-            Mioveni
-          </option>
-          <option value="Mizil">
-            Mizil
-          </option>
-          <option value="Moinești">
-            Moinești
-          </option>
-          <option value="Moldova Nouă">
-            Moldova Nouă
-          </option>
-          <option value="Moreni">
-            Moreni
-          </option>
-          <option value="Motru">
-            Motru
-          </option>
-          <option value="Murfatlar">
-            Murfatlar
-          </option>
-          <option value="Murgeni">
-            Murgeni
-          </option>
-          <option value="Nădlac">
-            Nădlac
-          </option>
-          <option value="Năsăud">
-            Năsăud
-          </option>
-          <option value="Năvodari">
-            Năvodari
-          </option>
-          <option value="Negrești">
-            Negrești
-          </option>
-          <option value="Negrești-Oaș">
-            Negrești-Oaș
-          </option>
-          <option value="Negru Vodă">
-            Negru Vodă
-          </option>
-          <option value="Nehoiu">
-            Nehoiu
-          </option>
-          <option value="Novaci">
-            Novaci
-          </option>
-          <option value="Nucet">
-            Nucet
-          </option>
-          <option value="Ocna Mureș">
-            Ocna Mureș
-          </option>
-          <option value="Ocna Sibiului">
-            Ocna Sibiului
-          </option>
-          <option value="Ocnele Mari">
-            Ocnele Mari
-          </option>
-          <option value="Odobești">
-            Odobești
-          </option>
-          <option value="Odorheiu Secuiesc">
-            Odorheiu Secuiesc
-          </option>
-          <option value="Oltenița">
-            Oltenița
-          </option>
-          <option value="Onești">
-            Onești
-          </option>
-          <option value="Oradea">
-            Oradea
-          </option>
-          <option value="Orăștie">
-            Orăștie
-          </option>
-          <option value="Oravița">
-            Oravița
-          </option>
-          <option value="Orșova">
-            Orșova
-          </option>
-          <option value="Oțelu Roșu">
-            Oțelu Roșu
-          </option>
-          <option value="Otopeni">
-            Otopeni
-          </option>
-          <option value="Ovidiu">
-            Ovidiu
-          </option>
-          <option value="Panciu">
-            Panciu
-          </option>
-          <option value="Pâncota">
-            Pâncota
-          </option>
-          <option value="Pantelimon">
-            Pantelimon
-          </option>
-          <option value="Pașcani">
-            Pașcani
-          </option>
-          <option value="Pătârlagele">
-            Pătârlagele
-          </option>
-          <option value="Pecica">
-            Pecica
-          </option>
-          <option value="Petrila">
-            Petrila
-          </option>
-          <option value="Petroșani">
-            Petroșani
-          </option>
-          <option value="Piatra Neamț">
-            Piatra Neamț
-          </option>
-          <option value="Piatra-Olt">
-            Piatra-Olt
-          </option>
-          <option value="Pitești">
-            Pitești
-          </option>
-          <option value="Ploiești">
-            Ploiești
-          </option>
-          <option value="Plopeni">
-            Plopeni
-          </option>
-          <option value="Podu Iloaiei">
-            Podu Iloaiei
-          </option>
-          <option value="Pogoanele">
-            Pogoanele
-          </option>
-          <option value="Popești-Leordeni">
-            Popești-Leordeni
-          </option>
-          <option value="Potcoava">
-            Potcoava
-          </option>
-          <option value="Predeal">
-            Predeal
-          </option>
-          <option value="Pucioasa">
-            Pucioasa
-          </option>
-          <option value="Răcari">
-            Răcari
-          </option>
-          <option value="Rădăuți">
-            Rădăuți
-          </option>
-          <option value="Râmnicu Sărat">
-            Râmnicu Sărat
-          </option>
-          <option value="Râmnicu Vâlcea">
-            Râmnicu Vâlcea
-          </option>
-          <option value="Râșnov">
-            Râșnov
-          </option>
-          <option value="Recaș">
-            Recaș
-          </option>
-          <option value="Reghin">
-            Reghin
-          </option>
-          <option value="Reșița">
-            Reșița
-          </option>
-          <option value="Roman">
-            Roman
-          </option>
-          <option value="Roșiorii de Vede">
-            Roșiorii de Vede
-          </option>
-          <option value="Rovinari">
-            Rovinari
-          </option>
-          <option value="Roznov">
-            Roznov
-          </option>
-          <option value="Rupea">
-            Rupea
-          </option>
-          <option value="Săcele">
-            Săcele
-          </option>
-          <option value="Săcueni">
-            Săcueni
-          </option>
-          <option value="Salcea">
-            Salcea
-          </option>
-          <option value="Săliște">
-            Săliște
-          </option>
-          <option value="Săliștea de Sus">
-            Săliștea de Sus
-          </option>
-          <option value="Salonta">
-            Salonta
-          </option>
-          <option value="Sângeorgiu de Pădure">
-            Sângeorgiu de Pădure
-          </option>
-          <option value="Sângeorz-Băi">
-            Sângeorz-Băi
-          </option>
-          <option value="Sânnicolau Mare">
-            Sânnicolau Mare
-          </option>
-          <option value="Sântana">
-            Sântana
-          </option>
-          <option value="Sărmașu">
-            Sărmașu
-          </option>
-          <option value="Satu Mare">
-            Satu Mare
-          </option>
-          <option value="Săveni">
-            Săveni
-          </option>
-          <option value="Scornicești">
-            Scornicești
-          </option>
-          <option value="Sebeș">
-            Sebeș
-          </option>
-          <option value="Sebiș">
-            Sebiș
-          </option>
-          <option value="Segarcea">
-            Segarcea
-          </option>
-          <option value="Seini">
-            Seini
-          </option>
-          <option value="Sfântu Gheorghe">
-            Sfântu Gheorghe
-          </option>
-          <option value="Sibiu">
-            Sibiu
-          </option>
-          <option value="Sighetu Marmației">
-            Sighetu Marmației
-          </option>
-          <option value="Sighișoara">
-            Sighișoara
-          </option>
-          <option value="Simeria">
-            Simeria
-          </option>
-          <option value="Șimleu Silvaniei">
-            Șimleu Silvaniei
-          </option>
-          <option value="Sinaia">
-            Sinaia
-          </option>
-          <option value="Siret">
-            Siret
-          </option>
-          <option value="Slănic">
-            Slănic
-          </option>
-          <option value="Slănic-Moldova">
-            Slănic-Moldova
-          </option>
-          <option value="Slatina">
-            Slatina
-          </option>
-          <option value="Slobozia">
-            Slobozia
-          </option>
-          <option value="Solca">
-            Solca
-          </option>
-          <option value="Șomcuta Mare">
-            Șomcuta Mare
-          </option>
-          <option value="Sovata">
-            Sovata
-          </option>
-          <option value="Ștefănești, Argeș">
-            Ștefănești, Argeș
-          </option>
-          <option value="Ștefănești, Botoșani">
-            Ștefănești, Botoșani
-          </option>
-          <option value="Ștei">
-            Ștei
-          </option>
-          <option value="Strehaia">
-            Strehaia
-          </option>
-          <option value="Suceava">
-            Suceava
-          </option>
-          <option value="Sulina">
-            Sulina
-          </option>
-          <option value="Tălmaciu">
-            Tălmaciu
-          </option>
-          <option value="Țăndărei">
-            Țăndărei
-          </option>
-          <option value="Târgoviște">
-            Târgoviște
-          </option>
-          <option value="Târgu Bujor">
-            Târgu Bujor
-          </option>
-          <option value="Târgu Cărbunești">
-            Târgu Cărbunești
-          </option>
-          <option value="Târgu Frumos">
-            Târgu Frumos
-          </option>
-          <option value="Târgu Jiu">
-            Târgu Jiu
-          </option>
-          <option value="Târgu Lăpuș">
-            Târgu Lăpuș
-          </option>
-          <option value="Târgu Mureș">
-            Târgu Mureș
-          </option>
-          <option value="Târgu Neamț">
-            Târgu Neamț
-          </option>
-          <option value="Târgu Ocna">
-            Târgu Ocna
-          </option>
-          <option value="Târgu Secuiesc">
-            Târgu Secuiesc
-          </option>
-          <option value="Târnăveni">
-            Târnăveni
-          </option>
-          <option value="Tășnad">
-            Tășnad
-          </option>
-          <option value="Tăuții-Măgherăuș">
-            Tăuții-Măgherăuș
-          </option>
-          <option value="Techirghiol">
-            Techirghiol
-          </option>
-          <option value="Tecuci">
-            Tecuci
-          </option>
-          <option value="Teiuș">
-            Teiuș
-          </option>
-          <option value="Țicleni">
-            Țicleni
-          </option>
-          <option value="Timișoara">
-            Timișoara
-          </option>
-          <option value="Tismana">
-            Tismana
-          </option>
-          <option value="Titu">
-            Titu
-          </option>
-          <option value="Toplița">
-            Toplița
-          </option>
-          <option value="Topoloveni">
-            Topoloveni
-          </option>
-          <option value="Tulcea">
-            Tulcea
-          </option>
-          <option value="Turceni">
-            Turceni
-          </option>
-          <option value="Turda">
-            Turda
-          </option>
-          <option value="Turnu Măgurele">
-            Turnu Măgurele
-          </option>
-          <option value="Ulmeni">
-            Ulmeni
-          </option>
-          <option value="Ungheni">
-            Ungheni
-          </option>
-          <option value="Uricani">
-            Uricani
-          </option>
-          <option value="Urlați">
-            Urlați
-          </option>
-          <option value="Urziceni">
-            Urziceni
-          </option>
-          <option value="Valea lui Mihai">
-            Valea lui Mihai
-          </option>
-          <option value="Vălenii de Munte">
-            Vălenii de Munte
-          </option>
-          <option value="Vânju Mare">
-            Vânju Mare
-          </option>
-          <option value="Vașcău">
-            Vașcău
-          </option>
-          <option value="Vaslui">
-            Vaslui
-          </option>
-          <option value="Vatra Dornei">
-            Vatra Dornei
-          </option>
-          <option value="Vicovu de Sus">
-            Vicovu de Sus
-          </option>
-          <option value="Victoria">
-            Victoria
-          </option>
-          <option value="Videle">
-            Videle
-          </option>
-          <option value="Vișeu de Sus">
-            Vișeu de Sus
-          </option>
-          <option value="Vlăhița">
-            Vlăhița
-          </option>
-          <option value="Voluntari">
-            Voluntari
-          </option>
-          <option value="Vulcan">
-            Vulcan
-          </option>
-          <option value="Zalău">
-            Zalău
-          </option>
-          <option value="Zărnești">
-            Zărnești
-          </option>
-          <option value="Zimnicea">
-            Zimnicea
-          </option>
-          <option value="Zlatna">
-            Zlatna
-          </option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="adresa" class="control-label">
-          Adresa
-        </label>
-        <input type="text" placeholder="Ex: Strada Timpului Nr. 12 Bl. 24 Ap. 3" name="address" required="true" class="adresa input-lg form-control"/>
-      </div>
-      <div class="form-group">
-        <label for="telefon" class="control-label">
-          Numar de Telefon
-        </label>
-        <input type="text" placeholder="Ex: 0721234567 " required="true" name="phone" class="telefon input-lg form-control"/>
-      </div>
-      <h3>
-        Metoda de Facturare
-        <i class="fa fa-money">
-
-        </i>
-      </h3>
-      <div class="form-group">
-        <label for="cc-number" class="control-label">
-          Card
-          <small class="text-muted">
-
-            <span class="cc-brand">
-            </span>
-
-          </small>
-        </label>
-        <input id="cc-number" type="text" pattern="d*" autocomplete="cc-number" name="cardNumber" placeholder="Card number" required="true" class="input-lg form-control cc-number"/>
-      </div>
-      <div class="form-group">
-        <label for="cc-exp" class="control-label">
-          Expiry formatting
-        </label>
-        <input id="cc-exp" type="text" pattern="d*" autocomplete="cc-exp" name="cardExpiry" placeholder="Expires MM/YY" required="true" class="input-lg form-control cc-exp"/>
-      </div>
-      <div class="form-group">
-        <label for="cc-cvc" class="control-label">
-          CVC formatting
-        </label>
-        <input id="cc-cvc" type="text" pattern="d*" autocomplete="off" name="cardCVC" placeholder="Security code" required="true" class="input-lg form-control cc-cvc"/>
-      </div>
-      <input type="checkbox" name="terms" value="terms" class="terms"/>
-      Am citit si sunt de acord cu
-      <a href="/terms-and-conditions">
-        Termeni si Conditii
-      </a>
-      <br/>
-      <button type="submit" class="btn btn-lg btn-primary">
-        Submit
-      </button>
-      <h2 class="validation">
-      </h2>
-    </form>
+    </div>
   </div>
 </div>
 			</div>

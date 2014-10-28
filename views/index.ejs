@@ -71,7 +71,7 @@
   text-align: center;
   margin-top: 2em;
 }
-#loginBtn {
+/*#loginBtn {
 	position: absolute;
 top: 75%;
 left: 50%;
@@ -82,7 +82,138 @@ background-color: #ccc
 }
 #loginBtn:hover {
 	background-color: #EE572D;
-	color: #fff;
+	color: #fff;*/
+body {
+  font-size: 18px;
+  font-family: 'Lato';
+  background: #fff;
+}
+.content {
+  padding: 15px;
+  background: #fff;
+}
+[role="page-container"] {
+  padding-top: 50px;
+}
+@media (max-width: 767px) {
+  [role="page-container"] {
+    background: #eee;
+  }
+}
+.top-bar {
+  height: 3em;
+  padding: 0 3em 0 3em;
+}
+.title-area {
+  padding-top: 0.5em;
+  color: #d05833;
+}
+.top-bar-section ul li > a {
+  font-size: 1em;
+  line-height: 0;
+}
+/* Form styles */
+.has-error input {
+  border-width: 2px;
+  border-color: #f00;
+}
+.has-no-error input {
+  border-width: 2px;
+  border-color: #008000;
+}
+.validation.text-danger:after {
+  content: 'Validation failed';
+}
+.validation.text-success:after {
+  content: 'Validation passed';
+}
+.credit-card {
+  font-size: 3em;
+}
+.btn {
+  background: #f45537;
+  border: 0;
+  color: #eeeeee;
+}
+.btn:hover {
+  background: #fa6143;
+  color: #eeeeee;
+}
+.login-logo {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 320px;
+}
+.nu-ai-cont {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  max-width: 320px;
+}
+.preferences {
+  background: #1a1a1a;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  color: #f45537;
+}
+a:hover {
+  color: #f45537;
+  text-decoration: none;
+}
+.fixed {
+  position: fixed;
+}
+.bill {
+  background: #e8e8e8;
+  height: 8em;
+  margin: 0 0 1em 0;
+  padding: 1em;
+}
+.bill-thumb {
+  height: 6em;
+}
+.bill-info {
+  font-size: 0.5em;
+}
+.bill-pay {
+  float: right;
+}
+.price {
+  color: #f45537;
+}
+.pay {
+  margin-bottom: -5em;
+}
+.total-price {
+  float: right;
+  margin: 1em 0 0 0;
+  color: #f45537;
+}
+.center {
+  text-align: center;
+}
+.btn {
+  border-radius: 0;
+}
+.input-lg {
+  border-radius: 0;
+}
+.balance-number {
+  color: #008000;
+  float: right;
+}
+
 }
 	</style>
 </head>
@@ -95,12 +226,6 @@ background-color: #ccc
     </div>
     <div class="infoLayer text-center">
       <img src="../../assets/omnifee.png"/>
-			<div>
-				<a href="/login">
-			<button name="btn" id='loginBtn' class="btn btn-lg btn-default">Inscrie-te</button>
-				</a>
-
-			</div>
       <div class="tagLine">
         <h1>
           Toate facturile tale într-un singur loc.
@@ -111,6 +236,12 @@ background-color: #ccc
           Cu omnifree iti platesti facturile cu un singur click.
         </h1>
       </div>
+			<div>
+				<a href="/signup">
+    			<button name="btn" id='loginBtn' class="btn btn-lg btn-default">Inscrie-te</button>
+				</a>
+
+			</div>
     </div>
   </div>
 </div>
