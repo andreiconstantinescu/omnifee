@@ -180,11 +180,7 @@ jQuery(function($) {
   $('form').submit(function(e) {
     var cnp = $('.cnp').val()
     if(!(!cnpValid($('.cnp').val())||!$('.mail').val()||!($('.pwd2').val() === $('.pwd1').val())||!$('.pwd1').val().length>=8||!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd2').val().length>=8)||!$('.nume').val()||!$('.prenume').val()||!$('.telefon').val()||!$('.adresa').val()||!$('.terms').val()||!$.payment.validateCardNumber($('.cc-number').val())||!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal'))||!$.payment.validateCardCVC($('.cc-cvc').val(), cardType)))
-<<<<<<< HEAD
       $('form').unbind('submit').submit();
-=======
-      $('form').unbind('submit');
->>>>>>> 408cd9d190610badb295fb0e5f55eb0f78e6569d
     else
       e.preventDefault();
 
