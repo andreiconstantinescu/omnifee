@@ -4,10 +4,11 @@
 	<title>Omnifee | Sign Up</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<style>
-  @input-border-focus
-
+  .text-muted{
+    color: #333333;
+  }
   .reasonsStripe{
   text-align: center;
   margin-top: 2em;
@@ -145,8 +146,42 @@ a:hover {
 }
 
 	</style>
+<style>
+.navbar-brand{
+  height: 3em;
+  width: auto;
+  margin-top: -1px;
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-bottom: 2px;
+
+}
+.navbar{
+  /*background: #333333;*/
+  border: 0;
+  background: rgba(51,51,51,0.95)
+}
+.nav a{
+  color: #a1a1a1 !important;
+}
+.nav a:hover{
+  color: #eeeeee !important;
+}
+</style>
 </head>
 <body>
+<nav role="nagivation" class="navbar navbar-fixed-top navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><img class="navbar-brand" src="/assets/omnifee.png" alt="Brand"/></a>
+    </div>
+    <div id="navbar-collapse" class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li><a href="/login/">Log in</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.2/jquery.payment.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -177,7 +212,8 @@ jQuery(function($) {
     return this;
   };
   // $('.username').focusout(function(){$('.username').toggleInputError(!$('.username').val())));
-  $('form').submit(function(e) {
+
+  $('form').on('submit',function(e) {
     var cnp = $('.cnp').val()
     if(!(!cnpValid($('.cnp').val())||!$('.mail').val()||!($('.pwd2').val() === $('.pwd1').val())||!$('.pwd1').val().length>=8||!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd2').val().length>=8)||!$('.nume').val()||!$('.prenume').val()||!$('.telefon').val()||!$('.adresa').val()||!$('.terms').val()||!$.payment.validateCardNumber($('.cc-number').val())||!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal'))||!$.payment.validateCardCVC($('.cc-cvc').val(), cardType)))
       $('form').unbind('submit').submit();
@@ -617,7 +653,7 @@ jQuery(function($) {
             <input id="cc-cvc" type="text" pattern="d*" autocomplete="off" placeholder="Security code" required="" name="cardCVC" class="input-lg form-control cc-cvc"/>
           </div>
           <input type="checkbox" name="terms" value="terms" class="terms"/> Am citit si sunt de acord cu <a href="/terms-and-agreements/">termenii si conditiile</a>.<br/><br/>
-          <button type="submit" class="btn btn-lg btn-primary">Creeaza cont</button>
+          <button type="submit" class="btn btn-lg btn-primary subm">Creeaza cont</button>
           <h2 class="validation"></h2>
         </form>
       </div>

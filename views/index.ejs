@@ -2,9 +2,205 @@
 <html>
 <head>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<title>Omnifee | Home</title>
+  <style type="text/css">
+/*
+Inspired by the dribble shot http://dribbble.com/shots/1285240-Freebie-Flat-Pricing-Table?list=tags&tag=pricing_table
+*/
+
+/*--------- Font ------------*/
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*------ utiltity classes -----*/
+.pt-footer a {
+  color: #fff;
+}
+.pt-footer a:hover {
+  color: #a1a1a1;
+}
+.fl{ float:left; }
+.fr{ float: right; }
+/*its also known as clearfix*/
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+} 
+.group:after {
+    clear: both;
+}
+.group {
+    zoom: 1;  /*For IE 6/7 (trigger hasLayout) */
+}
+
+body {
+    background: #F2F2F2;
+    font-family: 'Droid Sans', sans-serif;
+    line-height: 1;
+    font-size: 16px;    
+}
+.wrapper {
+    background: #333333;
+}
+.pricing-table {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    padding: 10px;
+    padding-right: 0;
+
+}
+.pricing-table .heading{
+    color: #9C9E9F;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    margin-bottom: 4rem;
+}
+.block{
+    width: 30%;    
+    margin: 0 15px;
+    overflow: hidden;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;    
+/*    border: 1px solid red;*/
+}
+/*Shared properties*/
+.title,.pt-footer{
+    color: #FEFEFE;
+    text-transform: capitalize;
+    line-height: 2.5;
+    position: relative;
+}
+.content{
+    position: relative;
+    color: #FEFEFE;
+    padding: 20px 0 10px 0;
+}
+/*arrow creation*/
+.content:after, .content:before,.pt-footer:before,.pt-footer:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.pt-footer:after,.pt-footer:before{
+    top:0;
+}
+.content:after,.pt-footer:after {
+  border-color: rgba(136, 183, 213, 0); 
+  border-width: 5px;
+  margin-left: -5px;
+}
+/*/arrow creation*/
+.price{
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.625rem;
+
+}
+.price span{    
+    font-size: 6rem;
+    letter-spacing: 8px;
+    font-weight: bold;        
+}
+.price sup{
+    font-size: 1.5rem;    
+    position: absolute;    
+    top: 12px;
+    left: -12px;
+}
+.hint{
+    font-style: italic;
+    font-size: 0.9rem;
+}
+.features{
+    list-style-type: none;    
+    background: #FFFFFF;
+    text-align: left;
+    color: #9C9C9C;
+    padding:30px 22%;
+    font-size: 0.7em;
+    margin-bottom: 0;
+}
+.features li{
+    padding:15px 0;
+    width: 100%;
+}
+.features li span{
+   padding-right: 0.4rem; 
+}
+.pt-footer{
+    font-size: 0.95rem;
+    text-transform: capitalize;
+    border-radius: 0 0 5px 5px;
+
+}
+/*PERSONAL*/
+.title{
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+}
+.personal .title{        
+    background: #78CFBF;    
+}
+.personal .content,.personal .pt-footer{
+    background: #82DACA;
+}
+.personal .content:after{ 
+  border-top-color: #82DACA;  
+}
+.personal .pt-footer:after{
+    border-top-color: #FFFFFF;
+}
+/*PROFESSIONAL*/
+.professional .title{
+    background: #3EC6E0;
+}
+.professional .content,.professional .pt-footer{
+    background: #53CFE9;
+}
+.professional .content:after{ 
+  border-top-color: #53CFE9;  
+}
+.professional .pt-footer:after{
+    border-top-color: #FFFFFF;
+}
+/*BUSINESS*/
+.business .title{
+    background: #E3536C;
+}
+.business .content,.business .pt-footer{
+    background: #EB6379;
+}
+.business .content:after{ 
+  border-top-color: #EB6379;  
+}
+.business .pt-footer:after {  
+  border-top-color: #FFFFFF;  
+}
+  </style>
 	<style>
 	body h1, h2, h3, h4, h5, h6 {
 	    font-family: 'Lato';
@@ -25,11 +221,11 @@
   overflow: hidden;
 }
 .mainstripe .content .videoLayer video {
-  position: fixed;
-  right: 50%;
-  bottom: 50%;
-  -webkit-transform: translate3d(50%, 50%, 0);
-          transform: translate3d(50%, 50%, 0);
+  /*position: fixed;*/
+  /*right: 50%;*/
+  /*bottom: 50%;*/
+  /*-webkit-transform: translate3d(50%, 50%, 0);*/
+          /*transform: translate3d(50%, 50%, 0);*/
   min-width: 100%;
   min-height: 100%;
   width: auto;
@@ -45,6 +241,7 @@
 }
 .mainstripe .content .infoLayer {
   width: 100%;
+  max-width: 900px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -189,9 +386,7 @@ a:hover {
 .bill-pay {
   float: right;
 }
-.price {
-  color: #f45537;
-}
+
 .pay {
   margin-bottom: -5em;
 }
@@ -213,19 +408,60 @@ a:hover {
   color: #008000;
   float: right;
 }
+.big-logo{
+  margin-bottom: 4em;
+}
 
 }
 	</style>
+<style>
+.navbar-brand{
+  height: 3em;
+  width: auto;
+  margin-top: -1px;
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-bottom: 2px;
+
+}
+.navbar{
+  /*background: #333333;*/
+  border: 0;
+  background: rgba(51,51,51,0.95)
+}
+.nav a{
+  color: #a1a1a1 !important;
+}
+.nav a:hover{
+  color: #eeeeee !important;
+}
+</style>
 </head>
-<body style="font-family: 'Lato'">
+<body>
+<nav role="nagivation" class="navbar navbar-fixed-top navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><img class="navbar-brand" src="/assets/omnifee.png" alt="Brand"/></a>
+    </div>
+    <div id="navbar-collapse" class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li><a href="/login/">Log in</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="mainstripe">
   <div class="content">
     <div class="videoLayer">
+     <video  autoplay="autoplay" loop="true">
+      <source src="../../assets/video.mp4" type="video/mp4" />
+     </video>
+
     </div>
     <div class="dimmingLayer">
     </div>
     <div class="infoLayer text-center">
-      <img src="../../assets/omnifee.png"/>
+      <img class="big-logo" src="../../assets/omnifee.png"/>
       <div class="tagLine">
         <h1>
           Toate facturile tale într-un singur loc.
@@ -255,7 +491,7 @@ a:hover {
           Rapid
         </h2>
         <p>
-          Recupereaza-ti timpul pierdut. Nu mia sta la cozi.
+          Recupereaza-ti timpul pierdut. Nu mai sta la cozi!
         </p>
       </div>
       <div class="col-sm-4">
@@ -265,7 +501,7 @@ a:hover {
           Sigur
         </h2>
         <p>
-          Siguranța clienților este prioritară.
+          Siguranta clientilor este pe primul loc!
         </p>
       </div>
       <div class="col-sm-4">
@@ -275,11 +511,106 @@ a:hover {
           Oriunde. Oricand
         </h2>
         <p>
-          Plătești facturile de acasă sau de pe drum. Mobil, usor și flexibil.
+          Platesti facturile de acasa sau de pe drum. Mobil, usor și flexibil!
         </p>
       </div>
     </div>
   </div>
 </div>
+<div class="wrapper">
+        <div class="pricing-table group">
+            <h1 class="heading">
+                Preturi
+            </h1>
+            <!-- PERSONAL -->
+            <div class="block personal fl">
+                <h2 class="title">Gratuit</h2>
+                <!-- CONTENT -->
+                <div class="content">
+                    <p class="price">
+                        <span>0</span>
+                        <sub>RON</sub>
+                    </p>
+                    <p class="hint">Perfect pentru nehotarati</p>
+                </div>
+                <!-- /CONTENT -->
+                <!-- FEATURES -->
+                <ul class="features">
+                    <li><span class="fa fa-ticket"></span>2 facturi pe luna</li>
+                    <li><span class="fa fa-area-chart"></span>Fara contabilizare</li>
+                    <li><span class="fa fa-user"></span>Un singur utilizator</li>
+                </ul>
+                <!-- /FEATURES -->
+                <!-- PT-FOOTER -->
+                <div class="pt-footer">
+                  <a href="/signup">
+                    <p>Cont nou</p>
+                  </a>
+                </div>
+                <!-- /PT-FOOTER -->
+            </div>
+            <!-- /PERSONAL -->
+            <!-- PROFESSIONAL -->
+            <div class="block professional fl">
+                <h2 class="title">Personal</h2>
+                <!-- CONTENT -->
+                <div class="content">
+                    <p class="price">
+                        <span>2%</span>
+                        <sup>*</sup>
+                    </p>
+                    <p class="hint">*procent din suma facturilor platite</p>
+                </div>
+                <!-- /CONTENT -->
+                <!-- FEATURES -->
+                <ul class="features">
+                    <li><span class="fa fa-ticket"></span>Numar nelimitat de facturi</li>
+                    <li><span class="fa fa-area-chart"></span>Contabilizare fara limite</li>
+                    <li><span class="fa fa-user"></span>Un singur utilizator</li>
+                </ul>
+                <!-- /FEATURES -->
+                <!-- PT-FOOTER -->
+                <div class="pt-footer">
+                  <a href="/signup">
+                    <p>Cont nou</p>
+                  </a>
+                </div>
+                <!-- /PT-FOOTER -->
+            </div>
+            <!-- /PROFESSIONAL -->
+            <!-- BUSINESS -->
+            <div class="block business fl">
+                <h2 class="title">Grup</h2>
+                <!-- CONTENT -->
+                <div class="content">
+                    <p class="price">
+                        <sup>*</sup>
+                        <span>3%</span>
+                    </p>
+                    <p class="hint">*procent din suma facturilor platite</p>
+                </div>
+                <!-- /CONTENT -->
+
+                <!-- FEATURES -->
+                <ul class="features">
+                    <li><span class="fa fa-ticket"></span>Numar nelimitat de facturi</li>
+                    <li><span class="fa fa-area-chart"></span>Contabilizare fara limite</li>
+                    <li><span class="fa fa-users"></span>Plata pentru alti utilizatori</li>
+                </ul>
+                <!-- /FEATURES -->
+
+                <!-- PT-FOOTER -->
+                <div class="pt-footer">
+                  <a href="/signup">
+                    <p>Cont nou</p>
+                  </a>
+                </div>
+                <!-- /PT-FOOTER -->
+            </div>
+            <!-- /BUSINESS -->
+        </div>
+        <!-- /PRICING-TABLE -->
+    </div>
+    </div>
 </body>
 </html>
