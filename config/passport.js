@@ -118,12 +118,12 @@ module.exports = function(passport) {
                         newUser.local.bill5Value = 100.99;
                         newUser.local.bill6 = "Distrigaz";
                         newUser.local.bill6Value = 89.90;
-                        newUser.local.bill1Paid = 'false';
-                        newUser.local.bill2Paid = 'false';
-                        newUser.local.bill3Paid = 'false';
-                        newUser.local.bill4Paid = 'false';
-                        newUser.local.bill5Paid = 'false';
-                        newUser.local.bill6Paid = 'false';
+                        newUser.local.bill1Paid = false;
+                        newUser.local.bill2Paid = false;
+                        newUser.local.bill3Paid = false;
+                        newUser.local.bill4Paid = false;
+                        newUser.local.bill5Paid = false;
+                        newUser.local.bill6Paid = false;
 
 
                         newUser.save(function(err) {

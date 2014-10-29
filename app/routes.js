@@ -1,5 +1,13 @@
+var User       = require('../app/models/user');
 module.exports = function(app, passport) {
-
+	app.post('/find', function(req, res) {
+		console.log(req.body);
+		console.log(req.body.caca);
+		User.findById('54508d27accc1fac0a4b3965', function (err, doc){
+			console.log(doc);
+	});
+	res.status(200).end();
+	});
 // normal routes ===============================================================
 
 	// show the home page (will also have our login links)

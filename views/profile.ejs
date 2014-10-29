@@ -208,11 +208,30 @@ a:hover {
 	<script charset="utf-8">
 	$(document).ready(function () {
 		var sum = 0;
-		$('.bill-pay .price span').each(function() {
-        sum += Number($(this).val());
-    });
-		console.log(sum);
+		var currentUnpaidBills = [];
+
+		console.log(currentUnpaidBills);
+		$('.bill-pay .price span').each(function (value, key) {
+				var billValue = parseFloat($(key).text()).toFixed(2);
+				sum += billValue;
+				console.log(typeof billValue);
+				currentUnpaidBills.push(billValue);
+		});
+		console.log(currentUnpaidBills);
 		$('.bill-total .price h3 span').html(sum);
+		$('.single-bill .pay').click(function () {
+			var currentBillValue = parseFloat($(this).parent().find('.price span').text());
+			var currentBallance = parseFloat($('.balance-number span').text());
+			var newBallance = currentBallance - currentBillValue;
+
+				if (newBallance <= 0) {
+					alert('Va rugam sa reincarcati pentru a putea continua sa platiti facturi!');
+				} else {
+					$('.balance-number span').text(newBallance.toFixed(2));
+					var c = <%= user.local.bill1Value %>;
+					console.log(typeof c, typeof newBallance);
+				}
+		});
 	})
 	</script>
 
@@ -268,7 +287,7 @@ a:hover {
             </h2>
           </div>
         </div>
-				<% if (user.local.bill1Paid === 'false') { %>
+				<% if (user.local.bill1Paid === false) { %>
         <div class="bill row">
           <div class="col-sm-4 col-xs-2 col-md-3 col-lg-2">
             <img src="../assets/providers/vodafone.png" class="bill-thumb"/>
@@ -297,7 +316,7 @@ a:hover {
             </div>
           </div>
           <div class="col-xs-4">
-            <div class="bill-pay">
+            <div class="bill-pay single-bill">
               <div class="price">
                   <span><%= user.local.bill1Value %></span> RON
               </div>
@@ -308,7 +327,7 @@ a:hover {
           </div>
         </div>
 				<% } %>
-				<% if (user.local.bill2Paid === 'false') { %>
+				<% if (user.local.bill2Paid === true) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/orange.png" class="bill-thumb"/>
@@ -337,7 +356,7 @@ a:hover {
 						</div>
 					</div>
 					<div class="col-xs-4">
-						<div class="bill-pay">
+						<div class="bill-pay single-bill">
 							<div class="price">
 									<span><%= user.local.bill2Value %></span> RON
 							</div>
@@ -348,7 +367,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill6Paid === 'false') { %>
+				<% if (user.local.bill6Paid === false) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/distrigaz.png" class="bill-thumb"/>
@@ -377,7 +396,7 @@ a:hover {
 						</div>
 					</div>
 					<div class="col-xs-4">
-						<div class="bill-pay">
+						<div class="bill-pay single-bill">
 							<div class="price">
 									<span><%= user.local.bill6Value %></span> RON
 							</div>
@@ -388,7 +407,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill4Paid === 'false') { %>
+				<% if (user.local.bill4Paid === false) { %>
         <div class="bill row">
           <div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
             <img src="../assets/providers/telekom.png" class="bill-thumb"/>
@@ -417,7 +436,7 @@ a:hover {
             </div>
           </div>
           <div class="col-xs-4">
-            <div class="bill-pay">
+            <div class="bill-pay single-bill">
               <div class="price">
                   <span><%= user.local.bill4Value %></span> RON
               </div>
@@ -428,7 +447,7 @@ a:hover {
           </div>
         </div>
 				<% } %>
-				<% if (user.local.bill5Paid === 'false') { %>
+				<% if (user.local.bill5Paid === false) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/digimobil.png" class="bill-thumb"/>
@@ -457,7 +476,7 @@ a:hover {
 						</div>
 					</div>
 					<div class="col-xs-4">
-						<div class="bill-pay">
+						<div class="bill-pay single-bill">
 							<div class="price">
 									<span><%= user.local.bill5Value %></span> RON
 							</div>
@@ -468,7 +487,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill3Paid === 'false') { %>
+				<% if (user.local.bill3Paid === false) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/enel.png" class="bill-thumb"/>
@@ -497,7 +516,7 @@ a:hover {
 						</div>
 					</div>
 					<div class="col-xs-4">
-						<div class="bill-pay">
+						<div class="bill-pay single-bill">
 							<div class="price">
 									<span><%= user.local.bill3Value %></span> RON
 							</div>
