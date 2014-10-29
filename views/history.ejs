@@ -3,7 +3,7 @@
 <head>
 	<title>Omnifee | Profile</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<style>
 		body 		{ padding-top:50px; word-wrap:break-word; }
@@ -165,7 +165,9 @@ a:hover {
 	line-height: 2.6em;
 	color: #a1a1a1
 }
-
+.menu-options a:hover{
+  color: #eee;
+}
 	</style>
 <style>
 .navbar-brand{
@@ -187,9 +189,6 @@ a:hover {
 }
 .nav a:hover{
   color: #eeeeee !important;
-}
-.menu-options a:hover{
-  color: #eee;
 }
 </style>
 </head>
@@ -260,7 +259,7 @@ a:hover {
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href="/settings">
                   Statistici
                 </a>
               </li>
@@ -278,19 +277,17 @@ a:hover {
           <div class="col-xs-6">
             <h2>
 
-              <i class="fa fa-money">
+              <i class="fa fa-line-chart ">
 
               </i>
-              Balanta
+              Istorie Facturi
             </h2>
           </div>
           <div class="col-xs-6">
-            <h2 class="balance-number">
-              <span><%= user.local.balance %></span> RON
             </h2>
           </div>
         </div>
-				<% if (user.local.bill1Paid === false) { %>
+				<% if (user.local.bill1Paid === true) { %>
         <div class="bill row">
           <div class="col-sm-4 col-xs-2 col-md-3 col-lg-2">
             <img src="../assets/providers/vodafone.png" class="bill-thumb"/>
@@ -370,7 +367,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill6Paid === false) { %>
+				<% if (user.local.bill6Paid === true) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/distrigaz.png" class="bill-thumb"/>
@@ -410,7 +407,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill4Paid === false) { %>
+				<% if (user.local.bill4Paid === true) { %>
         <div class="bill row">
           <div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
             <img src="../assets/providers/telekom.png" class="bill-thumb"/>
@@ -450,7 +447,7 @@ a:hover {
           </div>
         </div>
 				<% } %>
-				<% if (user.local.bill5Paid === false) { %>
+				<% if (user.local.bill5Paid === true) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/digimobil.png" class="bill-thumb"/>
@@ -490,7 +487,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill3Paid === false) { %>
+				<% if (user.local.bill3Paid === true) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/enel.png" class="bill-thumb"/>
@@ -530,27 +527,6 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-        <div class="row">
-          <div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
-            <h2>
-              Total:
-            </h2>
-          </div>
-          <div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
-          </div>
-          <div class="col-xs-4">
-            <div class="bill-total">
-              <div class="price">
-                <h3>
-                  <span></span>	RON
-                </h3>
-              </div>
-              <button type="submit" class="btn btn-lg btn-primary pay">
-                Plateste Tot
-              </button>
-            </div>
-          </div>
-        </div>
 
       </div>
 			<div class="col-sm-2 hidden-xs">
