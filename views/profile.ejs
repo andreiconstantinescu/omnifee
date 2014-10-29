@@ -210,17 +210,17 @@ a:hover {
 		var sum = 0;
 		var currentUnpaidBills = [];
 
-		console.log(currentUnpaidBills);
 		$('.bill-pay .price span').each(function (value, key) {
 				var billValue = parseFloat($(key).text()).toFixed(2);
+				billValue = parseFloat(billValue);
 				sum += billValue;
-				console.log(typeof billValue);
-				currentUnpaidBills.push(billValue);
+				currentUnpaidBills.push(parseFloat(billValue));
 		});
-		console.log(currentUnpaidBills);
-		$('.bill-total .price h3 span').html(sum);
+
+		$('.bill-total .price h3 span').text(sum);
 		$('.single-bill .pay').click(function () {
 			var currentBillValue = parseFloat($(this).parent().find('.price span').text());
+			console.log('current bill value:', currentBillValue);
 			var currentBallance = parseFloat($('.balance-number span').text());
 			var newBallance = currentBallance - currentBillValue;
 
