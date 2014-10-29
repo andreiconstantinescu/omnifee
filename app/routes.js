@@ -19,6 +19,27 @@ module.exports = function(app, passport) {
 		});
 	});
 
+	// HISTORY SECTION ========================
+	app.get('/history', isLoggedIn, function(req, res) {
+		res.render('history.ejs', {
+			user : req.user
+		});
+	});
+
+	// FEEDING SECTION ========================
+	app.get('/alimentare', isLoggedIn, function(req, res) {
+		res.render('alimentare.ejs', {
+			user : req.user
+		});
+	});
+
+// FEEDING SECTION ========================
+	app.get('/settings', isLoggedIn, function(req, res) {
+		res.render('settings.ejs', {
+			user : req.user
+		});
+	});
+
 	// LOGOUT ==============================
 	app.get('/logout', function(req, res) {
 		req.logout();

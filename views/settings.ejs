@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+<head>
+	<title>Omnifee | Profile</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.2/jquery.payment.min.js"></script>
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<style>
+		body 		{ padding-top:50px; word-wrap:break-word; }
+body {
+  font-size: 18px;
+  font-family: 'Lato';
+  background: #fff;
+}
+.select-card a{
+	margin-left: 2em;
+	color: #333333 ;
+}
+.select-card a:hover{
+	color: #F45537;
+}
+.content {
+  padding: 15px;
+  background: #fff;
+}
+[role="page-container"] {
+  padding-top: 50px;
+}
+@media (max-width: 767px) {
+  [role="page-container"] {
+    background: #eee;
+  }
+}
+
+.top-bar {
+  height: 3em;
+  padding: 0 3em 0 3em;
+}
+.title-area {
+  padding-top: 0.5em;
+  color: #d05833;
+}
+.top-bar-section ul li > a {
+  font-size: 1em;
+  line-height: 0;
+}
+/* Form styles */
+.has-error input {
+  border-width: 2px;
+  border-color: #f00;
+}
+.has-no-error input {
+  border-width: 2px;
+  border-color: #008000;
+}
+.validation.text-danger:after {
+  content: 'Validation failed';
+}
+.validation.text-success:after {
+  content: 'Validation passed';
+}
+.credit-card {
+  font-size: 3em;
+}
+.btn {
+  background: #f45537;
+  border: 0;
+}
+.btn:hover {
+  background: #fa6143;
+}
+.login-logo {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 320px;
+}
+.nu-ai-cont {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  max-width: 320px;
+}
+.preferences {
+  background: #1a1a1a;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  color: #f45537;
+}
+a:hover {
+  color: #f45537;
+  text-decoration: none;
+}
+.fixed {
+  position: fixed;
+}
+.bill {
+  background: #e8e8e8;
+  height: 8em;
+  margin: 0 0 1em 0;
+  padding: 1em;
+}
+.bill-thumb {
+  height: 6em;
+}
+@media (max-width: 767px) {
+	.bill-thumb {
+		height: 3.5em;
+	}
+}
+
+.bill-info {
+  font-size: 0.5em;
+}
+.bill-pay {
+  float: right;
+}
+.price {
+  color: #f45537;
+}
+.pay {
+  margin-bottom: -5em;
+}
+.total-price {
+  float: right;
+  margin: 1em 0 0 0;
+  color: #f45537;
+}
+.center {
+  text-align: center;
+}
+.btn {
+  border-radius: 0;
+}
+.input-lg {
+  border-radius: 0;
+}
+.balance-number {
+  color: #008000;
+  float: right;
+}
+.sidebar {
+	height: 100vh;
+}
+.preferences {
+	height: 100%;
+}
+
+@media (max-width: 767px) {
+	.bills-to-pay {
+		padding: 50px;
+	}
+}
+.menu-options {
+	padding-top: 50px;
+	width: 100%;
+}
+
+.menu-options a {
+	font-weight: 100;
+	font-size: 1.3em;
+	line-height: 2.6em;
+	color: #a1a1a1
+}
+
+	</style>
+<style>
+.navbar-brand{
+  height: 3em;
+  width: auto;
+  margin-top: -1px;
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-bottom: 2px;
+
+}
+.navbar{
+  /*background: #333333;*/
+  border: 0;
+  background: rgba(51,51,51,0.95)
+}
+.nav a{
+  color: #a1a1a1 !important;
+}
+.nav a:hover{
+  color: #eeeeee !important;
+}
+.menu-options a:hover{
+  color: #eee;
+}
+</style>
+</head>
+<body>
+<nav role="nagivation" class="navbar navbar-fixed-top navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><img class="navbar-brand" src="/assets/omnifee.png" alt="Brand"/></a>
+    </div>
+    <div id="navbar-collapse" class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li><a href="/login/">Log in</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+    <div class="row">
+      <div class="col-sm-3 sidebar">
+        <div class="preferences">
+          <div class="menu-options">
+            <ul>
+              <li>
+                <a href="/profile">
+                  Facturi Curente
+                </a>
+              </li>
+              <li>
+                <a href="/history">
+                  Istorie Facturi
+                </a>
+              </li>
+              <li>
+                <a href="/alimentare">
+                  Alimentare Cont
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Statistici
+                </a>
+              </li>
+              <li>
+                <a href="/settings">
+                  Setari
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8 bills-to-pay">
+        <div class="row balance">
+          <div class="col-xs-6">
+            <h2>
+
+              <i class="fa fa-cog">
+
+              </i>
+              Setari
+            </h2>
+          </div>
+          
+        </div>
+
+	        <form novalidate="" autocomplete="on" method="POST">
+          <input type="checkbox" name="autopay"> Plateste automat facturile cand totalul nu depaseste balanta
+          <br>
+          <input type="checkbox" name="automail"> Trimite notificare pe mail cand primesc noi facturi
+          <br>
+          <h3>Reseteaza parola</h3>
+          <h4>Parola veche</h4>
+            <input type="text" required="" name="pwdr1" class="nume input-lg form-control"/>
+          <h4>Parola noua</h4>
+            <input type="text" required="" name="pwdr2" class="nume input-lg form-control"/>
+          <h4>Reintroduceti parola noua</h4>
+            <input type="text" required="" name="pwdr3" class="nume input-lg form-control"/>
+          <br>
+	         <button type="submit" class="btn btn-lg btn-primary subm">Salveaza</button>
+	        </form>
+
+      </div>
+			<div class="col-sm-2 hidden-xs">
+
+			</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+
+		<!-- LOCAL INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3><span class="fa fa-user"></span> Local</h3>
+
+				<% if (user.local.email) { %>
+					<p>
+						<strong>id</strong>: <%= user._id %><br>
+						<strong>email</strong>: <%= user.local.email %><br>
+						<strong>password</strong>: <%= user.local.password %>
+					</p>
+
+					<a href="/unlink/local" class="btn btn-default">Unlink</a>
+				<% } else { %>
+					<a href="/connect/local" class="btn btn-default">Connect Local</a>
+				<% } %>
+
+			</div>
+
+</body>
+</html>
