@@ -38,6 +38,35 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
+app.post('/alimentare', function (req, res) {
+	var query = {'_id': req.body.userId};
+	console.log(req.body);
+	var update = {$set: {"balance": req.body.newBallance}};
+	User.findOneAndUpdate(query, update, {}, function (error, person){
+		console.log(person);
+		if (error){
+			console.log(error);
+		}
+	});
+	res.status(200).end();
+});
+
+app.post('/pay', function(req, res) {
+	console.log(req.body.userId);
+	var query = {'_id': req.body.userId};
+	var update = {$set: {"balance": req.body.newBallance}};
+
+	User.findOneAndUpdate(query, update, {}, function (error, person){
+		console.log(person);
+		if (error){
+			console.log(error);
+		}
+	})
+	// User.findById(req.body.userId, function (err, doc){
+	// 	console.log(doc);
+// });
+res.status(200).end();
+});
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 

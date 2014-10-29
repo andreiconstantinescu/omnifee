@@ -222,16 +222,54 @@ a:hover {
 			var currentBillValue = parseFloat($(this).parent().find('.price span').text());
 			console.log('current bill value:', currentBillValue);
 			var currentBallance = parseFloat($('.balance-number span').text());
-			var newBallance = currentBallance - currentBillValue;
+			var newBallance = parseFloat(currentBallance - currentBillValue).toFixed(2);
 
 				if (newBallance <= 0) {
-					alert('Va rugam sa reincarcati pentru a putea continua sa platiti facturi!');
+					$('#myModal').modal('toggle');
 				} else {
-					$('.balance-number span').text(newBallance.toFixed(2));
-					var c = <%= user.local.bill1Value %>;
+					$('.balance-number span').text(newBallance);
+					var c = <%= user.bill1Value %>;
+
+					var data = {
+						userId: '<%= user._id %>',
+						newBallance: newBallance
+					};
+
+					$.ajax({
+						type: 'post',
+						url: 'http://localhost:8080/pay',
+						contentType: 'application/json',
+						data: JSON.stringify(data),
+						success: function () {
+							console.log('success');
+						},
+						error: function () {
+							console.log('error');
+						}
+					});
 					console.log(typeof c, typeof newBallance);
 				}
 		});
+
+		$('#quickAdd').on('click',function () {
+			var value = parseFloat($('.quick #amount').val());
+			var data = {
+				userId: '545162050e8fa3374d42d4c1',
+				newBallance: value
+			};
+			$.ajax({
+				type: 'post',
+				url: 'http://localhost:8080/alimentare',
+				contentType: 'application/json',
+				data: JSON.stringify(data),
+				success: function () {
+					console.log('success');
+				},
+				error: function () {
+					console.log('error');
+				}
+			});
+		})
 	})
 	</script>
 
@@ -283,11 +321,11 @@ a:hover {
           </div>
           <div class="col-xs-6">
             <h2 class="balance-number">
-              <span><%= user.local.balance %></span> RON
+              <span><%= user.balance %></span> RON
             </h2>
           </div>
         </div>
-				<% if (user.local.bill1Paid === false) { %>
+				<% if (user.bill1Paid === false) { %>
         <div class="bill row">
           <div class="col-sm-4 col-xs-2 col-md-3 col-lg-2">
             <img src="../assets/providers/vodafone.png" class="bill-thumb"/>
@@ -318,7 +356,7 @@ a:hover {
           <div class="col-xs-4">
             <div class="bill-pay single-bill">
               <div class="price">
-                  <span><%= user.local.bill1Value %></span> RON
+                  <span><%= user.bill1Value %></span> RON
               </div>
               <button type="submit" class="btn btn-lg btn-primary pay">
                 Plateste
@@ -327,7 +365,7 @@ a:hover {
           </div>
         </div>
 				<% } %>
-				<% if (user.local.bill2Paid === true) { %>
+				<% if (user.bill2Paid === true) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/orange.png" class="bill-thumb"/>
@@ -358,7 +396,7 @@ a:hover {
 					<div class="col-xs-4">
 						<div class="bill-pay single-bill">
 							<div class="price">
-									<span><%= user.local.bill2Value %></span> RON
+									<span><%= user.bill2Value %></span> RON
 							</div>
 							<button type="submit" class="btn btn-lg btn-primary pay">
 								Plateste
@@ -367,7 +405,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill6Paid === false) { %>
+				<% if (user.bill6Paid === false) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/distrigaz.png" class="bill-thumb"/>
@@ -398,7 +436,7 @@ a:hover {
 					<div class="col-xs-4">
 						<div class="bill-pay single-bill">
 							<div class="price">
-									<span><%= user.local.bill6Value %></span> RON
+									<span><%= user.bill6Value %></span> RON
 							</div>
 							<button type="submit" class="btn btn-lg btn-primary pay">
 								Plateste
@@ -407,7 +445,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill4Paid === false) { %>
+				<% if (user.bill4Paid === false) { %>
         <div class="bill row">
           <div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
             <img src="../assets/providers/telekom.png" class="bill-thumb"/>
@@ -438,7 +476,7 @@ a:hover {
           <div class="col-xs-4">
             <div class="bill-pay single-bill">
               <div class="price">
-                  <span><%= user.local.bill4Value %></span> RON
+                  <span><%= user.bill4Value %></span> RON
               </div>
               <button type="submit" class="btn btn-lg btn-primary pay">
                 Plateste
@@ -447,7 +485,7 @@ a:hover {
           </div>
         </div>
 				<% } %>
-				<% if (user.local.bill5Paid === false) { %>
+				<% if (user.bill5Paid === false) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/digimobil.png" class="bill-thumb"/>
@@ -478,7 +516,7 @@ a:hover {
 					<div class="col-xs-4">
 						<div class="bill-pay single-bill">
 							<div class="price">
-									<span><%= user.local.bill5Value %></span> RON
+									<span><%= user.bill5Value %></span> RON
 							</div>
 							<button type="submit" class="btn btn-lg btn-primary pay">
 								Plateste
@@ -487,7 +525,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill3Paid === false) { %>
+				<% if (user.bill3Paid === false) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/enel.png" class="bill-thumb"/>
@@ -518,7 +556,7 @@ a:hover {
 					<div class="col-xs-4">
 						<div class="bill-pay single-bill">
 							<div class="price">
-									<span><%= user.local.bill3Value %></span> RON
+									<span><%= user.bill3Value %></span> RON
 							</div>
 							<button type="submit" class="btn btn-lg btn-primary pay">
 								Plateste
@@ -584,6 +622,33 @@ a:hover {
 				<% } %>
 
 			</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body quick">
+				<div class="row">
+					<div class="col-xs-3">
+						<span>Suma:</span>
+					</div>
+					<div class="col-xs-6">
+		        <input type="text" class=" form-control" id="amount"/>
+					</div>
+					<div class="col-xs-3">
+						<span>RON</span>
+					</div>
+				</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="quickAdd" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
