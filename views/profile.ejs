@@ -211,16 +211,22 @@ a:hover {
 	<script charset="utf-8">
 	$(document).ready(function () {
 		var sum = 0;
-		var currentUnpaidBills = [];
+
+		function sumUp () {
+
 
 		$('.bill-pay .price span').each(function (value, key) {
 				var billValue = parseFloat($(key).text()).toFixed(2);
 				billValue = parseFloat(billValue);
 				sum += billValue;
-				currentUnpaidBills.push(parseFloat(billValue));
+				sum = sum;
+				console.log(typeof billValue, typeof sum);
 		});
+				sum = parseFloat(sum).toFixed(2)
 
 		$('.bill-total .price h3 span').text(sum);
+	};
+		sumUp();
 		$('.single-bill .pay').click(function () {
 			var currentBillValue = parseFloat($(this).parent().find('.price span').text());
 			console.log('current bill value:', currentBillValue);
@@ -230,13 +236,18 @@ a:hover {
 				if (newBallance <= 0) {
 					$('#myModal').modal('toggle');
 				} else {
-					$('.balance-number span').text(newBallance);
-					var c = <%= user.bill1Value %>;
 
-					var data = {
-						userId: '<%= user._id %>',
-						newBallance: newBallance
-					};
+					var currentBillId = $(this).data('status');
+
+					$('.balance-number span').text(newBallance);
+					var data = {};
+					data['userId'] = '<%= user._id %>';
+					data['newBallance'] = newBallance;
+					data['paidBill'] = currentBillId;
+					data[currentBillId] = true;
+
+					$(this).parent().parent().parent().addClass('hidden');
+
 
 					$.ajax({
 						type: 'post',
@@ -245,6 +256,7 @@ a:hover {
 						data: JSON.stringify(data),
 						success: function () {
 							console.log('success');
+							$('.bill-total .price h3 span').text(sum);
 						},
 						error: function () {
 							console.log('error');
@@ -257,7 +269,7 @@ a:hover {
 		$('#quickAdd').on('click',function () {
 			var value = parseFloat($('.quick #amount').val());
 			var data = {
-				userId: '545162050e8fa3374d42d4c1',
+				userId: '<%= user._id %>',
 				newBallance: value
 			};
 			$.ajax({
@@ -361,7 +373,7 @@ a:hover {
               <div class="price">
                   <span><%= user.bill1Value %></span> RON
               </div>
-              <button type="submit" class="btn btn-lg btn-primary pay">
+              <button type="submit" class="btn btn-lg btn-primary pay" data-status="bill1Paid">
                 Plateste
               </button>
             </div>
@@ -401,7 +413,7 @@ a:hover {
 							<div class="price">
 									<span><%= user.bill2Value %></span> RON
 							</div>
-							<button type="submit" class="btn btn-lg btn-primary pay">
+							<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill2Paid">
 								Plateste
 							</button>
 						</div>
@@ -441,7 +453,7 @@ a:hover {
 							<div class="price">
 									<span><%= user.bill6Value %></span> RON
 							</div>
-							<button type="submit" class="btn btn-lg btn-primary pay">
+							<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill6Paid">
 								Plateste
 							</button>
 						</div>
@@ -481,7 +493,7 @@ a:hover {
               <div class="price">
                   <span><%= user.bill4Value %></span> RON
               </div>
-              <button type="submit" class="btn btn-lg btn-primary pay">
+              <button type="submit" class="btn btn-lg btn-primary pay" data-status="bill4Paid">
                 Plateste
               </button>
             </div>
@@ -521,7 +533,7 @@ a:hover {
 							<div class="price">
 									<span><%= user.bill5Value %></span> RON
 							</div>
-							<button type="submit" class="btn btn-lg btn-primary pay">
+							<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill5Paid">
 								Plateste
 							</button>
 						</div>
@@ -561,7 +573,7 @@ a:hover {
 							<div class="price">
 									<span><%= user.bill3Value %></span> RON
 							</div>
-							<button type="submit" class="btn btn-lg btn-primary pay">
+							<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill3Paid">
 								Plateste
 							</button>
 						</div>

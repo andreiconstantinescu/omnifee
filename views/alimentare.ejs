@@ -273,7 +273,7 @@ a:hover {
           </div>
           <div class="col-xs-6">
             <h2 class="balance-number">
-              <span><%= user.local.balance %></span> RON
+              <span><%= user.balance %></span> RON
             </h2>
           </div>
         </div>
@@ -286,9 +286,9 @@ a:hover {
 	          </div>
         		<h4>Selectati cardul cu care doriti sa alimentati:</h4>
         		<div class="select-card">
-        			<a href='#'>
+        			<a href='#' onclick='return false'>
 								<span class="cc-type"></span>
-		            <span class="cc-number"><%= user.local.cardNumber %></span>
+		            <span class="cc-number"><%= user.cardNumber %></span>
             	</a>
           </div>
         	<h3>Cod prepaid</h3>
@@ -329,33 +329,6 @@ a:hover {
   </div>
 </div>
 
-<div class="container">
-
-	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-	</div>
-
-	<div class="row">
-
-		<!-- LOCAL INFORMATION -->
-		<div class="col-sm-6">
-			<div class="well">
-				<h3><span class="fa fa-user"></span> Local</h3>
-
-				<% if (user.local.email) { %>
-					<p>
-						<strong>id</strong>: <%= user._id %><br>
-						<strong>email</strong>: <%= user.local.email %><br>
-						<strong>password</strong>: <%= user.local.password %>
-					</p>
-
-					<a href="/unlink/local" class="btn btn-default">Unlink</a>
-				<% } else { %>
-					<a href="/connect/local" class="btn btn-default">Connect Local</a>
-				<% } %>
-
-			</div>
 
 </body>
 </html>

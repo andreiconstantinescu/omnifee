@@ -52,9 +52,15 @@ app.post('/alimentare', function (req, res) {
 });
 
 app.post('/pay', function(req, res) {
-	console.log(req.body.userId);
+	console.log(req.body);
 	var query = {'_id': req.body.userId};
-	var update = {$set: {"balance": req.body.newBallance}};
+
+
+	var toSet = {};
+	toSet['balance'] = req.body.newBallance;
+	toSet[req.body.paidBill] = req.body.paidBill;
+	console.log(toSet);
+	var update = {$set: toSet};
 
 	User.findOneAndUpdate(query, update, {}, function (error, person){
 		console.log(person);

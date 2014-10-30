@@ -230,7 +230,7 @@ a:hover {
 					alert('Va rugam sa reincarcati pentru a putea continua sa platiti facturi!');
 				} else {
 					$('.balance-number span').text(newBallance.toFixed(2));
-					var c = <%= user.local.bill1Value %>;
+					var c = <%= user.bill1Value %>;
 					console.log(typeof c, typeof newBallance);
 				}
 		});
@@ -287,7 +287,7 @@ a:hover {
             </h2>
           </div>
         </div>
-				<% if (user.local.bill1Paid === true) { %>
+				<% if (user.bill1Paid === true) { %>
         <div class="bill row">
           <div class="col-sm-4 col-xs-2 col-md-3 col-lg-2">
             <img src="../assets/providers/vodafone.png" class="bill-thumb"/>
@@ -318,7 +318,7 @@ a:hover {
           <div class="col-xs-4">
             <div class="bill-pay single-bill">
               <div class="price">
-                  <span><%= user.local.bill1Value %></span> RON
+                  <span><%= user.bill1Value %></span> RON
               </div>
               <button type="submit" class="btn btn-lg btn-primary pay">
                 Plateste
@@ -327,7 +327,7 @@ a:hover {
           </div>
         </div>
 				<% } %>
-				<% if (user.local.bill2Paid === true) { %>
+				<% if (user.bill2Paid === true) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/orange.png" class="bill-thumb"/>
@@ -358,7 +358,7 @@ a:hover {
 					<div class="col-xs-4">
 						<div class="bill-pay single-bill">
 							<div class="price">
-									<span><%= user.local.bill2Value %></span> RON
+									<span><%= user.bill2Value %></span> RON
 							</div>
 							<button type="submit" class="btn btn-lg btn-primary pay">
 								Plateste
@@ -367,7 +367,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill6Paid === true) { %>
+				<% if (user.bill6Paid === true) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/distrigaz.png" class="bill-thumb"/>
@@ -398,7 +398,7 @@ a:hover {
 					<div class="col-xs-4">
 						<div class="bill-pay single-bill">
 							<div class="price">
-									<span><%= user.local.bill6Value %></span> RON
+									<span><%= user.bill6Value %></span> RON
 							</div>
 							<button type="submit" class="btn btn-lg btn-primary pay">
 								Plateste
@@ -407,7 +407,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill4Paid === true) { %>
+				<% if (user.bill4Paid === true) { %>
         <div class="bill row">
           <div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
             <img src="../assets/providers/telekom.png" class="bill-thumb"/>
@@ -438,7 +438,7 @@ a:hover {
           <div class="col-xs-4">
             <div class="bill-pay single-bill">
               <div class="price">
-                  <span><%= user.local.bill4Value %></span> RON
+                  <span><%= user.bill4Value %></span> RON
               </div>
               <button type="submit" class="btn btn-lg btn-primary pay">
                 Plateste
@@ -447,7 +447,7 @@ a:hover {
           </div>
         </div>
 				<% } %>
-				<% if (user.local.bill5Paid === true) { %>
+				<% if (user.bill5Paid === true) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/digimobil.png" class="bill-thumb"/>
@@ -478,7 +478,7 @@ a:hover {
 					<div class="col-xs-4">
 						<div class="bill-pay single-bill">
 							<div class="price">
-									<span><%= user.local.bill5Value %></span> RON
+									<span><%= user.bill5Value %></span> RON
 							</div>
 							<button type="submit" class="btn btn-lg btn-primary pay">
 								Plateste
@@ -487,7 +487,7 @@ a:hover {
 					</div>
 				</div>
 				<% } %>
-				<% if (user.local.bill3Paid === true) { %>
+				<% if (user.bill3Paid === true) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
 						<img src="../assets/providers/enel.png" class="bill-thumb"/>
@@ -518,7 +518,7 @@ a:hover {
 					<div class="col-xs-4">
 						<div class="bill-pay single-bill">
 							<div class="price">
-									<span><%= user.local.bill3Value %></span> RON
+									<span><%= user.bill3Value %></span> RON
 							</div>
 							<button type="submit" class="btn btn-lg btn-primary pay">
 								Plateste
@@ -535,34 +535,5 @@ a:hover {
     </div>
   </div>
 </div>
-
-<div class="container">
-
-	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-	</div>
-
-	<div class="row">
-
-		<!-- LOCAL INFORMATION -->
-		<div class="col-sm-6">
-			<div class="well">
-				<h3><span class="fa fa-user"></span> Local</h3>
-
-				<% if (user.local.email) { %>
-					<p>
-						<strong>id</strong>: <%= user._id %><br>
-						<strong>email</strong>: <%= user.local.email %><br>
-						<strong>password</strong>: <%= user.local.password %>
-					</p>
-
-					<a href="/unlink/local" class="btn btn-default">Unlink</a>
-				<% } else { %>
-					<a href="/connect/local" class="btn btn-default">Connect Local</a>
-				<% } %>
-
-			</div>
-
 </body>
 </html>
