@@ -221,7 +221,7 @@
 				sum += billValue;
 				console.log('aici', typeof billValue, typeof sum);
 			});
-			sum = parseFloat(sum);
+			sum = parseFloat(sum).toFixed(2);
 
 			$('.bill-total .price h3 span').text(sum);
 			console.log('suma din functie', sum)
@@ -235,7 +235,6 @@
 				data: JSON.stringify(data),
 				success: function () {
 					console.log('success');
-					// $('.bill-total .price h3 span').text(sum);
 				},
 				error: function () {
 					console.log('error');
@@ -267,8 +266,6 @@
 				$(this).parent().parent().parent().remove();
 				payBill(data);
 				sumUp();
-				// console.log('suma', sum)
-				// $('.bill-total .price h3 span').text(sum);
 
 			}
 		});
@@ -292,7 +289,41 @@
 				}
 			});
 		})
+	$('.all-pay').click (function () {
+		var payingAmount = $('.bill-total .price h3 span').text();
+		var currentBallance = parseFloat($('.balance-number span').text());
+		var newBallance = parseFloat(currentBallance - payingAmount).toFixed(2);
+		if (newBallance <= 0) {
+			$('#myModal').modal('toggle');
+		} else {
+			$('.balance-number span').text(newBallance);
+
+			$('.bill-pay .price span ').each(function () {
+
+				var currentBillId = $(this).parent().parent().find('.pay').data('status');
+				console.log('factura platita', currentBillId, $(this))
+				var data = {};
+				data['userId'] = '<%= user._id %>';
+				data['newBallance'] = newBallance;
+				data['paidBill'] = currentBillId;
+				data[currentBillId] = true;
+
+				$(this).parent().parent().parent().parent().remove();
+				payBill(data);
+				sumUp();
+
+			})
+		}
+		// var data = {};
+		// data['userId'] = '<%= user._id %>';
+		// data['newBallance'] = newBallance;
+		// data['paidBill'] = currentBillId;
+		// data[currentBillId] = true;
+
+		console.log('total de plata', payingAmount)
 	})
+	});
+
 	</script>
 
 
@@ -602,7 +633,7 @@
 														<span></span>	RON
 													</h3>
 												</div>
-												<button type="submit" class="btn btn-lg btn-primary pay">
+												<button type="submit" class="btn btn-lg btn-primary pay all-pay">
 													Plateste Tot
 												</button>
 											</div>

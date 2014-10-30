@@ -63,7 +63,7 @@ app.post('/pay', function(req, res) {
 	var update = {$set: toSet};
 
 	User.findOneAndUpdate(query, update, {}, function (error, person){
-		console.log(person);
+		console.log(person.balance);
 		if (error){
 			console.log(error);
 		}
