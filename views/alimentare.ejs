@@ -279,10 +279,11 @@ a:hover {
         </div>
         <div>
         	<h3>Plata cu Cardul</h3>
-	        <form novalidate="" autocomplete="on" method="POST">
+	        <form novalidate="" autocomplete="on">
 	          <div class="form-group">
 	            <label for="alimentare" class="control-label">Introduceti suma in RON</label>
-	            <input type="text" required="" name="alimentare" class="input-lg form-control"/>
+							<span id="warn"></span>
+	            <input type="text" required="" name="alimentare" class="input-lg form-control" id="amount"/>
 	          </div>
         		<h4>Selectati cardul cu care doriti sa alimentati:</h4>
         		<div class="select-card">
@@ -294,7 +295,7 @@ a:hover {
         	<h3>Cod prepaid</h3>
 	            <input type="text" placeholder="J8S%k@jd93Io!4y" required="" name="codprepaid" class="input-lg form-control"/>
 	          <br>
-	         <button type="submit" class="btn btn-lg btn-primary subm">Alimenteaza</button>
+	         <button class="btn btn-lg btn-primary" id="quickAdd">Alimenteaza</button>
 	        </form>
         </div>
 	<script charset="utf-8">
@@ -319,6 +320,40 @@ a:hover {
       default:
         console.log(0);
       }
+	$('#quickAdd').on('click',function () {
+		var value = parseFloat($('#amount').val());
+		console.log(value);
+
+		if (!value || value <= 0) {
+			$('#warn').css('color', 'red').css('padding-left', '0.5em').text('Suma introdusa este invalida!');
+			return false;
+		}
+
+		value += <%= user.balance %>
+
+		var data = {
+			userId: '<%= user._id %>',
+			newBallance: value
+		};
+		$.ajax({
+			type: 'post',
+			url: 'http://localhost:8080/alimentare',
+			contentType: 'application/json',
+			data: JSON.stringify(data),
+			success: function () {
+				console.log('success');
+				$('#myModal').modal('hide');
+			},
+			error: function () {
+				console.log('error');
+			}
+		});
+		setTimeout(function () {
+
+			$('.balance-number span').text(value);
+
+		}, 200)
+	})
 });
 	</script>
       </div>

@@ -210,8 +210,6 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script charset="utf-8">
 	$(document).ready(function () {
-		// var sum = 0;
-
 		function sumUp () {
 
 			var sum = 0;
@@ -242,16 +240,17 @@
 			});
 		};
 
-
 		sumUp();
+
 		$('.single-bill .pay').click(function () {
 			var currentBillValue = parseFloat($(this).parent().find('.price span').text());
 			console.log('current bill value:', currentBillValue);
 			var currentBallance = parseFloat($('.balance-number span').text());
+			console.log(typeof currentBallance, currentBallance);
 			var newBallance = parseFloat(currentBallance - currentBillValue).toFixed(2);
-
+			console.log(typeof newBallance, newBallance);
 			if (newBallance <= 0) {
-				$('#myModal').modal('toggle');
+				$('#myModal').modal('show');
 			} else {
 
 				var currentBillId = $(this).data('status');
@@ -270,25 +269,6 @@
 			}
 		});
 
-		$('#quickAdd').on('click',function () {
-			var value = parseFloat($('.quick #amount').val());
-			var data = {
-				userId: '<%= user._id %>',
-				newBallance: value
-			};
-			$.ajax({
-				type: 'post',
-				url: 'http://localhost:8080/alimentare',
-				contentType: 'application/json',
-				data: JSON.stringify(data),
-				success: function () {
-					console.log('success');
-				},
-				error: function () {
-					console.log('error');
-				}
-			});
-		})
 	$('.all-pay').click (function () {
 		var payingAmount = $('.bill-total .price h3 span').text();
 		var currentBallance = parseFloat($('.balance-number span').text());
@@ -314,13 +294,6 @@
 
 			})
 		}
-		// var data = {};
-		// data['userId'] = '<%= user._id %>';
-		// data['newBallance'] = newBallance;
-		// data['paidBill'] = currentBillId;
-		// data[currentBillId] = true;
-
-		console.log('total de plata', payingAmount)
 	})
 	});
 
@@ -682,22 +655,18 @@
 														<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 														<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 													</div>
-													<div class="modal-body quick">
-														<div class="row">
-															<div class="col-xs-3">
-																<span>Suma:</span>
-															</div>
-															<div class="col-xs-6">
-																<input type="text" class=" form-control" id="amount"/>
-															</div>
-															<div class="col-xs-3">
-																<span>RON</span>
-															</div>
+													<div class="modal-body">
+
+														<h2>Fonduri Insuficiente!</h2>
+														<div class="small">
+															<span>Va rugam sa reincarcati!</span>
 														</div>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-														<button type="button" id="quickAdd" class="btn btn-primary">Save changes</button>
+														<button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+														<a href="/alimentare">
+															<button type="button" id="quickAdd" class="btn btn-primary">Reincarca</button>
+														</a>
 													</div>
 												</div>
 											</div>
