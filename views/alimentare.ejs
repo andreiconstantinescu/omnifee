@@ -330,7 +330,7 @@ a:hover {
 		}
 
 		value += <%= user.balance %>
-
+		value = value.toFixed(2)
 		var data = {
 			userId: '<%= user._id %>',
 			newBallance: value
