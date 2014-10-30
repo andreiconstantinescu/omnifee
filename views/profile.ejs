@@ -4,228 +4,246 @@
 	<title>Omnifee | Profile</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<style>
-		body 		{ padding-top:50px; word-wrap:break-word; }
-body {
-  font-size: 18px;
-  font-family: 'Lato';
-  background: #fff;
-}
-.content {
-  padding: 15px;
-  background: #fff;
-}
-[role="page-container"] {
-  padding-top: 50px;
-}
-@media (max-width: 767px) {
-  [role="page-container"] {
-    background: #eee;
-  }
-}
+	body 		{ padding-top:50px; word-wrap:break-word; }
+	body {
+		font-size: 18px;
+		font-family: 'Lato';
+		background: #fff;
+	}
+	.content {
+		padding: 15px;
+		background: #fff;
+	}
+	[role="page-container"] {
+		padding-top: 50px;
+	}
+	@media (max-width: 767px) {
+		[role="page-container"] {
+			background: #eee;
+		}
+	}
 
-.top-bar {
-  height: 3em;
-  padding: 0 3em 0 3em;
-}
-.title-area {
-  padding-top: 0.5em;
-  color: #d05833;
-}
-.top-bar-section ul li > a {
-  font-size: 1em;
-  line-height: 0;
-}
-/* Form styles */
-.has-error input {
-  border-width: 2px;
-  border-color: #f00;
-}
-.has-no-error input {
-  border-width: 2px;
-  border-color: #008000;
-}
-.validation.text-danger:after {
-  content: 'Validation failed';
-}
-.validation.text-success:after {
-  content: 'Validation passed';
-}
-.credit-card {
-  font-size: 3em;
-}
-.btn {
-  background: #f45537;
-  border: 0;
-}
-.btn:hover {
-  background: #fa6143;
-}
-.login-logo {
-  width: 300px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.login {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 320px;
-}
-.nu-ai-cont {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1em;
-  max-width: 320px;
-}
-.preferences {
-  background: #1a1a1a;
-}
-ul {
-  list-style-type: none;
-}
-a {
-  color: #f45537;
-}
-a:hover {
-  color: #f45537;
-  text-decoration: none;
-}
-.fixed {
-  position: fixed;
-}
-.bill {
-  background: #e8e8e8;
-  height: 8em;
-  margin: 0 0 1em 0;
-  padding: 1em;
-}
-.bill-thumb {
-  height: 6em;
-}
-@media (max-width: 767px) {
+	.top-bar {
+		height: 3em;
+		padding: 0 3em 0 3em;
+	}
+	.title-area {
+		padding-top: 0.5em;
+		color: #d05833;
+	}
+	.top-bar-section ul li > a {
+		font-size: 1em;
+		line-height: 0;
+	}
+	/* Form styles */
+	.has-error input {
+		border-width: 2px;
+		border-color: #f00;
+	}
+	.has-no-error input {
+		border-width: 2px;
+		border-color: #008000;
+	}
+	.validation.text-danger:after {
+		content: 'Validation failed';
+	}
+	.validation.text-success:after {
+		content: 'Validation passed';
+	}
+	.credit-card {
+		font-size: 3em;
+	}
+	.btn {
+		background: #f45537;
+		border: 0;
+	}
+	.btn:hover {
+		background: #fa6143;
+	}
+	.login-logo {
+		width: 300px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.login {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 320px;
+	}
+	.nu-ai-cont {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 1em;
+		max-width: 320px;
+	}
+	.preferences {
+		background: #1a1a1a;
+	}
+	ul {
+		list-style-type: none;
+	}
+	a {
+		color: #f45537;
+	}
+	a:hover {
+		color: #f45537;
+		text-decoration: none;
+	}
+	.fixed {
+		position: fixed;
+	}
+	.bill {
+		background: #e8e8e8;
+		height: 8em;
+		margin: 0 0 1em 0;
+		padding: 1em;
+	}
 	.bill-thumb {
-		height: 3.5em;
+		height: 6em;
 	}
-}
-
-.bill-info {
-  font-size: 0.5em;
-}
-.bill-pay {
-  float: right;
-}
-.price {
-  color: #f45537;
-}
-.pay {
-  margin-bottom: -5em;
-}
-.total-price {
-  float: right;
-  margin: 1em 0 0 0;
-  color: #f45537;
-}
-.center {
-  text-align: center;
-}
-.btn {
-  border-radius: 0;
-}
-.input-lg {
-  border-radius: 0;
-}
-.balance-number {
-  color: #008000;
-  float: right;
-}
-.sidebar {
-	height: 100vh;
-}
-.preferences {
-	height: 100%;
-}
-
-@media (max-width: 767px) {
-	.bills-to-pay {
-		padding: 50px;
+	@media (max-width: 767px) {
+		.bill-thumb {
+			height: 3.5em;
+		}
 	}
-}
-.menu-options {
-	padding-top: 50px;
-	width: 100%;
-}
 
-.menu-options a {
-	font-weight: 100;
-	font-size: 1.3em;
-	line-height: 2.6em;
-	color: #a1a1a1
-}
+	.bill-info {
+		font-size: 0.5em;
+	}
+	.bill-pay {
+		float: right;
+	}
+	.price {
+		color: #f45537;
+	}
+	.pay {
+		margin-bottom: -5em;
+	}
+	.total-price {
+		float: right;
+		margin: 1em 0 0 0;
+		color: #f45537;
+	}
+	.center {
+		text-align: center;
+	}
+	.btn {
+		border-radius: 0;
+	}
+	.input-lg {
+		border-radius: 0;
+	}
+	.balance-number {
+		color: #008000;
+		float: right;
+	}
+	.sidebar {
+		height: 100vh;
+	}
+	.preferences {
+		height: 100%;
+	}
+
+	@media (max-width: 767px) {
+		.bills-to-pay {
+			padding: 50px;
+		}
+	}
+	.menu-options {
+		padding-top: 50px;
+		width: 100%;
+	}
+
+	.menu-options a {
+		font-weight: 100;
+		font-size: 1.3em;
+		line-height: 2.6em;
+		color: #a1a1a1
+	}
 
 	</style>
-<style>
-.navbar-brand{
-  height: 3em;
-  width: auto;
-  margin-top: -1px;
-  padding-top: 2px;
-  padding-right: 2px;
-  padding-bottom: 2px;
+	<style>
+	.navbar-brand{
+		height: 3em;
+		width: auto;
+		margin-top: -1px;
+		padding-top: 2px;
+		padding-right: 2px;
+		padding-bottom: 2px;
 
-}
-.navbar{
-  /*background: #333333;*/
-  border: 0;
-  background: rgba(51,51,51,0.95)
-}
-.nav a{
-  color: #a1a1a1 !important;
-}
-.nav a:hover{
-  color: #eeeeee !important;
-}
-.menu-options a:hover{
-  color: #eee;
-}
-</style>
+	}
+	.navbar{
+		/*background: #333333;*/
+		border: 0;
+		background: rgba(51,51,51,0.95)
+	}
+	.nav a{
+		color: #a1a1a1 !important;
+	}
+	.nav a:hover{
+		color: #eeeeee !important;
+	}
+	.menu-options a:hover{
+		color: #eee;
+	}
+	</style>
 </head>
 <body>
-<nav role="nagivation" class="navbar navbar-fixed-top navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><img class="navbar-brand" src="/assets/omnifee.png" alt="Brand"/></a>
-    </div>
-    <div id="navbar-collapse" class="collapse navbar-collapse navbar-right">
-      <ul class="nav navbar-nav">
-        <li><a href="/login/">Log in</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+	<nav role="nagivation" class="navbar navbar-fixed-top navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><img class="navbar-brand" src="/assets/omnifee.png" alt="Brand"/></a>
+			</div>
+			<div id="navbar-collapse" class="collapse navbar-collapse navbar-right">
+				<ul class="nav navbar-nav">
+					<li><a href="/login/">Log in</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script charset="utf-8">
 	$(document).ready(function () {
-		var sum = 0;
+		// var sum = 0;
 
 		function sumUp () {
 
-
-		$('.bill-pay .price span').each(function (value, key) {
+			var sum = 0;
+			$('.bill-pay .price span ').each(function (value, key) {
 				var billValue = parseFloat($(key).text()).toFixed(2);
 				billValue = parseFloat(billValue);
 				sum += billValue;
-				sum = sum;
-				console.log(typeof billValue, typeof sum);
-		});
-				sum = parseFloat(sum).toFixed(2)
+				console.log('aici', typeof billValue, typeof sum);
+			});
+			sum = parseFloat(sum);
 
-		$('.bill-total .price h3 span').text(sum);
-	};
+			$('.bill-total .price h3 span').text(sum);
+			console.log('suma din functie', sum)
+		};
+
+		function payBill (data) {
+			$.ajax({
+				type: 'post',
+				url: 'http://localhost:8080/pay',
+				contentType: 'application/json',
+				data: JSON.stringify(data),
+				success: function () {
+					console.log('success');
+					// $('.bill-total .price h3 span').text(sum);
+				},
+				error: function () {
+					console.log('error');
+				}
+			});
+		};
+
+
 		sumUp();
 		$('.single-bill .pay').click(function () {
 			var currentBillValue = parseFloat($(this).parent().find('.price span').text());
@@ -233,37 +251,26 @@ a:hover {
 			var currentBallance = parseFloat($('.balance-number span').text());
 			var newBallance = parseFloat(currentBallance - currentBillValue).toFixed(2);
 
-				if (newBallance <= 0) {
-					$('#myModal').modal('toggle');
-				} else {
+			if (newBallance <= 0) {
+				$('#myModal').modal('toggle');
+			} else {
 
-					var currentBillId = $(this).data('status');
+				var currentBillId = $(this).data('status');
 
-					$('.balance-number span').text(newBallance);
-					var data = {};
-					data['userId'] = '<%= user._id %>';
-					data['newBallance'] = newBallance;
-					data['paidBill'] = currentBillId;
-					data[currentBillId] = true;
+				$('.balance-number span').text(newBallance);
+				var data = {};
+				data['userId'] = '<%= user._id %>';
+				data['newBallance'] = newBallance;
+				data['paidBill'] = currentBillId;
+				data[currentBillId] = true;
 
-					$(this).parent().parent().parent().addClass('hidden');
+				$(this).parent().parent().parent().remove();
+				payBill(data);
+				sumUp();
+				// console.log('suma', sum)
+				// $('.bill-total .price h3 span').text(sum);
 
-
-					$.ajax({
-						type: 'post',
-						url: 'http://localhost:8080/pay',
-						contentType: 'application/json',
-						data: JSON.stringify(data),
-						success: function () {
-							console.log('success');
-							$('.bill-total .price h3 span').text(sum);
-						},
-						error: function () {
-							console.log('error');
-						}
-					});
-					console.log(typeof c, typeof newBallance);
-				}
+			}
 		});
 
 		$('#quickAdd').on('click',function () {
@@ -289,381 +296,381 @@ a:hover {
 	</script>
 
 
-    <div class="row">
-      <div class="col-sm-3 sidebar">
-        <div class="preferences">
-          <div class="menu-options">
-            <ul>
-              <li>
-                <a href="/profile">
-                  Facturi Curente
-                </a>
-              </li>
-              <li>
-                <a href="/history">
-                  Istorie Facturi
-                </a>
-              </li>
-              <li>
-                <a href="/alimentare">
-                  Alimentare Cont
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  Statistici
-                </a>
-              </li>
-              <li>
-                <a href="/settings">
-                  Setari
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-8 bills-to-pay">
-        <div class="row balance">
-          <div class="col-xs-6">
-            <h2>
+	<div class="row">
+		<div class="col-sm-3 sidebar">
+			<div class="preferences">
+				<div class="menu-options">
+					<ul>
+						<li>
+							<a href="/profile">
+								Facturi Curente
+							</a>
+						</li>
+						<li>
+							<a href="/history">
+								Istorie Facturi
+							</a>
+						</li>
+						<li>
+							<a href="/alimentare">
+								Alimentare Cont
+							</a>
+						</li>
+						<li>
+							<a href="">
+								Statistici
+							</a>
+						</li>
+						<li>
+							<a href="/settings">
+								Setari
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-8 bills-to-pay">
+			<div class="row balance">
+				<div class="col-xs-6">
+					<h2>
 
-              <i class="fa fa-money">
+						<i class="fa fa-money">
 
-              </i>
-              Balanta
-            </h2>
-          </div>
-          <div class="col-xs-6">
-            <h2 class="balance-number">
-              <span><%= user.balance %></span> RON
-            </h2>
-          </div>
-        </div>
-				<% if (user.bill1Paid === false) { %>
-        <div class="bill row">
-          <div class="col-sm-4 col-xs-2 col-md-3 col-lg-2">
-            <img src="../assets/providers/vodafone.png" class="bill-thumb"/>
-          </div>
-          <div class="col-xs-5 col-sm-4 col-md-5 col-lg-6">
-            <div class="bill-info">
-              <span>
-                Nr. de telefon: 722812066
-              </span>
-              <br/>
-              <span>
-                Cont client: 235279005
-              </span>
-              <br/>
-              <span>
-                Seria si numarul facturii: VDF1842952749
-              </span>
-              <br/>
-              <span>
-                Data facturii: 17/10/2014
-              </span>
-              <br/>
-              <span>
-                Perioada de facturare: 11/09/2014 - 19/10/2014
-              </span>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="bill-pay single-bill">
-              <div class="price">
-                  <span><%= user.bill1Value %></span> RON
-              </div>
-              <button type="submit" class="btn btn-lg btn-primary pay" data-status="bill1Paid">
-                Plateste
-              </button>
-            </div>
-          </div>
-        </div>
+						</i>
+						Balanta
+					</h2>
+				</div>
+				<div class="col-xs-6">
+					<h2 class="balance-number">
+						<span><%= user.balance %></span> RON
+					</h2>
+				</div>
+			</div>
+			<% if (user.bill1Paid === false) { %>
+				<div class="bill row">
+					<div class="col-sm-4 col-xs-2 col-md-3 col-lg-2">
+						<img src="../assets/providers/vodafone.png" class="bill-thumb"/>
+					</div>
+					<div class="col-xs-5 col-sm-4 col-md-5 col-lg-6">
+						<div class="bill-info">
+							<span>
+								Nr. de telefon: 722812066
+							</span>
+							<br/>
+							<span>
+								Cont client: 235279005
+							</span>
+							<br/>
+							<span>
+								Seria si numarul facturii: VDF1842952749
+							</span>
+							<br/>
+							<span>
+								Data facturii: 17/10/2014
+							</span>
+							<br/>
+							<span>
+								Perioada de facturare: 11/09/2014 - 19/10/2014
+							</span>
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="bill-pay single-bill">
+							<div class="price">
+								<span><%= user.bill1Value %></span> RON
+							</div>
+							<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill1Paid">
+								Plateste
+							</button>
+						</div>
+					</div>
+				</div>
 				<% } %>
 				<% if (user.bill2Paid === true) { %>
-				<div class="bill row">
-					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
-						<img src="../assets/providers/orange.png" class="bill-thumb"/>
-					</div>
-					<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
-						<div class="bill-info">
-							<span>
-								Nr. de telefon: 745141448
-							</span>
-							<br/>
-							<span>
-								Cont client: 09347355
-							</span>
-							<br/>
-							<span>
-								Seria si numarul facturii: OG94823175
-							</span>
-							<br/>
-							<span>
-								Data facturii: 1/10/2014
-							</span>
-							<br/>
-							<span>
-								Perioada de facturare: 1/09/2014 - 31/10/2014
-							</span>
+					<div class="bill row">
+						<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+							<img src="../assets/providers/orange.png" class="bill-thumb"/>
 						</div>
-					</div>
-					<div class="col-xs-4">
-						<div class="bill-pay single-bill">
-							<div class="price">
+						<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+							<div class="bill-info">
+								<span>
+									Nr. de telefon: 745141448
+								</span>
+								<br/>
+								<span>
+									Cont client: 09347355
+								</span>
+								<br/>
+								<span>
+									Seria si numarul facturii: OG94823175
+								</span>
+								<br/>
+								<span>
+									Data facturii: 1/10/2014
+								</span>
+								<br/>
+								<span>
+									Perioada de facturare: 1/09/2014 - 31/10/2014
+								</span>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="bill-pay single-bill">
+								<div class="price">
 									<span><%= user.bill2Value %></span> RON
+								</div>
+								<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill2Paid">
+									Plateste
+								</button>
 							</div>
-							<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill2Paid">
-								Plateste
-							</button>
 						</div>
 					</div>
-				</div>
-				<% } %>
-				<% if (user.bill6Paid === false) { %>
-				<div class="bill row">
-					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
-						<img src="../assets/providers/distrigaz.png" class="bill-thumb"/>
-					</div>
-					<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
-						<div class="bill-info">
-							<span>
-								Nr. de telefon: 745141448
-							</span>
-							<br/>
-							<span>
-								Cont client: 09347355
-							</span>
-							<br/>
-							<span>
-								Seria si numarul facturii: OG94823175
-							</span>
-							<br/>
-							<span>
-								Data facturii: 1/10/2014
-							</span>
-							<br/>
-							<span>
-								Perioada de facturare: 1/09/2014 - 31/10/2014
-							</span>
-						</div>
-					</div>
-					<div class="col-xs-4">
-						<div class="bill-pay single-bill">
-							<div class="price">
-									<span><%= user.bill6Value %></span> RON
+					<% } %>
+					<% if (user.bill6Paid === false) { %>
+						<div class="bill row">
+							<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+								<img src="../assets/providers/distrigaz.png" class="bill-thumb"/>
 							</div>
-							<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill6Paid">
-								Plateste
-							</button>
-						</div>
-					</div>
-				</div>
-				<% } %>
-				<% if (user.bill4Paid === false) { %>
-        <div class="bill row">
-          <div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
-            <img src="../assets/providers/telekom.png" class="bill-thumb"/>
-          </div>
-          <div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
-            <div class="bill-info">
-              <span>
-                Nr. de telefon: 745141448
-              </span>
-              <br/>
-              <span>
-                Cont client: 09347355
-              </span>
-              <br/>
-              <span>
-                Seria si numarul facturii: OG94823175
-              </span>
-              <br/>
-              <span>
-                Data facturii: 1/10/2014
-              </span>
-              <br/>
-              <span>
-                Perioada de facturare: 1/09/2014 - 31/10/2014
-              </span>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="bill-pay single-bill">
-              <div class="price">
-                  <span><%= user.bill4Value %></span> RON
-              </div>
-              <button type="submit" class="btn btn-lg btn-primary pay" data-status="bill4Paid">
-                Plateste
-              </button>
-            </div>
-          </div>
-        </div>
-				<% } %>
-				<% if (user.bill5Paid === false) { %>
-				<div class="bill row">
-					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
-						<img src="../assets/providers/digimobil.png" class="bill-thumb"/>
-					</div>
-					<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
-						<div class="bill-info">
-							<span>
-								Nr. de telefon: 745141448
-							</span>
-							<br/>
-							<span>
-								Cont client: 09347355
-							</span>
-							<br/>
-							<span>
-								Seria si numarul facturii: OG94823175
-							</span>
-							<br/>
-							<span>
-								Data facturii: 1/10/2014
-							</span>
-							<br/>
-							<span>
-								Perioada de facturare: 1/09/2014 - 31/10/2014
-							</span>
-						</div>
-					</div>
-					<div class="col-xs-4">
-						<div class="bill-pay single-bill">
-							<div class="price">
-									<span><%= user.bill5Value %></span> RON
+							<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+								<div class="bill-info">
+									<span>
+										Nr. de telefon: 745141448
+									</span>
+									<br/>
+									<span>
+										Cont client: 09347355
+									</span>
+									<br/>
+									<span>
+										Seria si numarul facturii: OG94823175
+									</span>
+									<br/>
+									<span>
+										Data facturii: 1/10/2014
+									</span>
+									<br/>
+									<span>
+										Perioada de facturare: 1/09/2014 - 31/10/2014
+									</span>
+								</div>
 							</div>
-							<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill5Paid">
-								Plateste
-							</button>
-						</div>
-					</div>
-				</div>
-				<% } %>
-				<% if (user.bill3Paid === false) { %>
-				<div class="bill row">
-					<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
-						<img src="../assets/providers/enel.png" class="bill-thumb"/>
-					</div>
-					<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
-						<div class="bill-info">
-							<span>
-								Nr. de telefon: 745141448
-							</span>
-							<br/>
-							<span>
-								Cont client: 09347355
-							</span>
-							<br/>
-							<span>
-								Seria si numarul facturii: OG94823175
-							</span>
-							<br/>
-							<span>
-								Data facturii: 1/10/2014
-							</span>
-							<br/>
-							<span>
-								Perioada de facturare: 1/09/2014 - 31/10/2014
-							</span>
-						</div>
-					</div>
-					<div class="col-xs-4">
-						<div class="bill-pay single-bill">
-							<div class="price">
-									<span><%= user.bill3Value %></span> RON
+							<div class="col-xs-4">
+								<div class="bill-pay single-bill">
+									<div class="price">
+										<span><%= user.bill6Value %></span> RON
+									</div>
+									<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill6Paid">
+										Plateste
+									</button>
+								</div>
 							</div>
-							<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill3Paid">
-								Plateste
-							</button>
+						</div>
+						<% } %>
+						<% if (user.bill4Paid === false) { %>
+							<div class="bill row">
+								<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+									<img src="../assets/providers/telekom.png" class="bill-thumb"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+									<div class="bill-info">
+										<span>
+											Nr. de telefon: 745141448
+										</span>
+										<br/>
+										<span>
+											Cont client: 09347355
+										</span>
+										<br/>
+										<span>
+											Seria si numarul facturii: OG94823175
+										</span>
+										<br/>
+										<span>
+											Data facturii: 1/10/2014
+										</span>
+										<br/>
+										<span>
+											Perioada de facturare: 1/09/2014 - 31/10/2014
+										</span>
+									</div>
+								</div>
+								<div class="col-xs-4">
+									<div class="bill-pay single-bill">
+										<div class="price">
+											<span><%= user.bill4Value %></span> RON
+										</div>
+										<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill4Paid">
+											Plateste
+										</button>
+									</div>
+								</div>
+							</div>
+							<% } %>
+							<% if (user.bill5Paid === false) { %>
+								<div class="bill row">
+									<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+										<img src="../assets/providers/digimobil.png" class="bill-thumb"/>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+										<div class="bill-info">
+											<span>
+												Nr. de telefon: 745141448
+											</span>
+											<br/>
+											<span>
+												Cont client: 09347355
+											</span>
+											<br/>
+											<span>
+												Seria si numarul facturii: OG94823175
+											</span>
+											<br/>
+											<span>
+												Data facturii: 1/10/2014
+											</span>
+											<br/>
+											<span>
+												Perioada de facturare: 1/09/2014 - 31/10/2014
+											</span>
+										</div>
+									</div>
+									<div class="col-xs-4">
+										<div class="bill-pay single-bill">
+											<div class="price">
+												<span><%= user.bill5Value %></span> RON
+											</div>
+											<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill5Paid">
+												Plateste
+											</button>
+										</div>
+									</div>
+								</div>
+								<% } %>
+								<% if (user.bill3Paid === false) { %>
+									<div class="bill row">
+										<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+											<img src="../assets/providers/enel.png" class="bill-thumb"/>
+										</div>
+										<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+											<div class="bill-info">
+												<span>
+													Nr. de telefon: 745141448
+												</span>
+												<br/>
+												<span>
+													Cont client: 09347355
+												</span>
+												<br/>
+												<span>
+													Seria si numarul facturii: OG94823175
+												</span>
+												<br/>
+												<span>
+													Data facturii: 1/10/2014
+												</span>
+												<br/>
+												<span>
+													Perioada de facturare: 1/09/2014 - 31/10/2014
+												</span>
+											</div>
+										</div>
+										<div class="col-xs-4">
+											<div class="bill-pay single-bill">
+												<div class="price">
+													<span><%= user.bill3Value %></span> RON
+												</div>
+												<button type="submit" class="btn btn-lg btn-primary pay" data-status="bill3Paid">
+													Plateste
+												</button>
+											</div>
+										</div>
+									</div>
+									<% } %>
+									<div class="row">
+										<div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
+											<h2>
+												Total:
+											</h2>
+										</div>
+										<div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
+										</div>
+										<div class="col-xs-4">
+											<div class="bill-total">
+												<div class="price">
+													<h3>
+														<span></span>	RON
+													</h3>
+												</div>
+												<button type="submit" class="btn btn-lg btn-primary pay">
+													Plateste Tot
+												</button>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="col-sm-2 hidden-xs">
+
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<% } %>
-        <div class="row">
-          <div class="col-sm-4 col-xs-4 col-md-3 col-lg-2">
-            <h2>
-              Total:
-            </h2>
-          </div>
-          <div class="col-xs-4 col-sm-4 col-md-5 col-lg-6">
-          </div>
-          <div class="col-xs-4">
-            <div class="bill-total">
-              <div class="price">
-                <h3>
-                  <span></span>	RON
-                </h3>
-              </div>
-              <button type="submit" class="btn btn-lg btn-primary pay">
-                Plateste Tot
-              </button>
-            </div>
-          </div>
-        </div>
 
-      </div>
-			<div class="col-sm-2 hidden-xs">
+					<div class="container">
 
-			</div>
-    </div>
-  </div>
-</div>
+						<div class="page-header text-center">
+							<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+							<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+						</div>
 
-<div class="container">
+						<div class="row">
 
-	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-	</div>
+							<!-- LOCAL INFORMATION -->
+							<div class="col-sm-6">
+								<div class="well">
+									<h3><span class="fa fa-user"></span> Local</h3>
 
-	<div class="row">
+									<% if (user.local.email) { %>
+										<p>
+											<strong>id</strong>: <%= user._id %><br>
+											<strong>email</strong>: <%= user.local.email %><br>
+											<strong>password</strong>: <%= user.local.password %>
+										</p>
 
-		<!-- LOCAL INFORMATION -->
-		<div class="col-sm-6">
-			<div class="well">
-				<h3><span class="fa fa-user"></span> Local</h3>
+										<a href="/unlink/local" class="btn btn-default">Unlink</a>
+										<% } else { %>
+											<a href="/connect/local" class="btn btn-default">Connect Local</a>
+											<% } %>
 
-				<% if (user.local.email) { %>
-					<p>
-						<strong>id</strong>: <%= user._id %><br>
-						<strong>email</strong>: <%= user.local.email %><br>
-						<strong>password</strong>: <%= user.local.password %>
-					</p>
+										</div>
+										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+														<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+													</div>
+													<div class="modal-body quick">
+														<div class="row">
+															<div class="col-xs-3">
+																<span>Suma:</span>
+															</div>
+															<div class="col-xs-6">
+																<input type="text" class=" form-control" id="amount"/>
+															</div>
+															<div class="col-xs-3">
+																<span>RON</span>
+															</div>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														<button type="button" id="quickAdd" class="btn btn-primary">Save changes</button>
+													</div>
+												</div>
+											</div>
+										</div>
 
-					<a href="/unlink/local" class="btn btn-default">Unlink</a>
-				<% } else { %>
-					<a href="/connect/local" class="btn btn-default">Connect Local</a>
-				<% } %>
-
-			</div>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body quick">
-				<div class="row">
-					<div class="col-xs-3">
-						<span>Suma:</span>
-					</div>
-					<div class="col-xs-6">
-		        <input type="text" class=" form-control" id="amount"/>
-					</div>
-					<div class="col-xs-3">
-						<span>RON</span>
-					</div>
-				</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" id="quickAdd" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
+									</body>
+									</html>
