@@ -143,7 +143,7 @@
 		float: right;
 	}
 	.sidebar {
-		height: 100vh;
+		height: 140vh;
 	}
 	.preferences {
 		height: 100%;
@@ -201,7 +201,7 @@
 			</div>
 			<div id="navbar-collapse" class="collapse navbar-collapse navbar-right">
 				<ul class="nav navbar-nav">
-					<li><a href="/login/">Log in</a></li>
+					<li><a href="/">Log out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -261,8 +261,18 @@
 				data['newBallance'] = newBallance;
 				data['paidBill'] = currentBillId;
 				data[currentBillId] = true;
+				data['paidAll'] = false;
 
 				$(this).parent().parent().parent().remove();
+				if (!$('.single-bill .pay').length) {
+					data['paidAll'] = true;
+					console.log('caca true')
+				}
+
+				if (data['paidAll'] === true) {
+				$('.not-paid').remove();
+				$('.bills-to-pay').append('<div class="paid"><h1>Momentan nu sunt facturi neplatite!</h1></div>');
+				}
 				payBill(data);
 				sumUp();
 
@@ -287,12 +297,17 @@
 				data['newBallance'] = newBallance;
 				data['paidBill'] = currentBillId;
 				data[currentBillId] = true;
+				data['paidAll'] = true;
 
 				$(this).parent().parent().parent().parent().remove();
-				payBill(data);
-				sumUp();
+				payBill(data, true);
+
 
 			})
+
+			$('.bill-total .price h3 span').text(0.00);
+			$('.not-paid').remove();
+			$('.bills-to-pay').append('<div class="paid"><h1>Momentan nu sunt facturi neplatite!</h1></div>');
 		}
 	})
 	});
@@ -351,6 +366,9 @@
 					</h2>
 				</div>
 			</div>
+			<% if (user.paidAll === false) { %>
+			<div class="not-paid">
+
 			<% if (user.bill1Paid === false) { %>
 				<div class="bill row">
 					<div class="col-sm-4 col-xs-2 col-md-3 col-lg-2">
@@ -614,40 +632,22 @@
 									</div>
 
 								</div>
+			<% } else {%>
+			<div class='paid'>
+				<h1>
+				Momentan nu sunt facturi neplatite!
+				</h1>
+			</div>
+			<% } %>
 								<div class="col-sm-2 hidden-xs">
 
 								</div>
-							</div>
 						</div>
 					</div>
+			</div>
+							</div>
 
-					<div class="container">
 
-						<div class="page-header text-center">
-							<h1><span class="fa fa-anchor"></span> Profile Page</h1>
-							<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-						</div>
-
-						<div class="row">
-
-							<!-- LOCAL INFORMATION -->
-							<div class="col-sm-6">
-								<div class="well">
-									<h3><span class="fa fa-user"></span> Local</h3>
-
-									<% if (user.local.email) { %>
-										<p>
-											<strong>id</strong>: <%= user._id %><br>
-											<strong>email</strong>: <%= user.local.email %><br>
-											<strong>password</strong>: <%= user.local.password %>
-										</p>
-
-										<a href="/unlink/local" class="btn btn-default">Unlink</a>
-										<% } else { %>
-											<a href="/connect/local" class="btn btn-default">Connect Local</a>
-											<% } %>
-
-										</div>
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog">
 												<div class="modal-content">

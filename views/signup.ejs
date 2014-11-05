@@ -215,46 +215,19 @@ jQuery(function($) {
 
   $('form').on('submit',function(e) {
     var cnp = $('.cnp').val()
-    if(!(!cnpValid($('.cnp').val())||!$('.mail').val()||!($('.pwd2').val() === $('.pwd1').val())||!$('.pwd1').val().length>=8||!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd2').val().length>=8)||!$('.nume').val()||!$('.prenume').val()||!$('.telefon').val()||!$('.adresa').val()||!$('.terms').val()||!$.payment.validateCardNumber($('.cc-number').val())||!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal'))||!$.payment.validateCardCVC($('.cc-cvc').val(), cardType)))
+    if(!(!cnpValid($('.cnp').val())||!$('.mail').val()||!($('.pwd2').val() === $('.pwd1').val())||!$('.pwd1').val().length>=8||!($('.pwd2').val() === $('.pwd1').val()&&$('.pwd2').val().length>=8)||!$('.nume').val()||!$('.prenume').val()||!$('.telefon').val()||!$('.adresa').val()||!$('.terms').val())) {
       $('form').unbind('submit').submit();
-    else
+			console.log('unbind');
+		}
+    else {
       e.preventDefault();
+			console.log('prevdefaualt')
+		}
 
 
     $()
-    var cardType = $.payment.cardType($('.cc-number').val());
-    $('.cc-number').toggleInputError(!$.payment.validateCardNumber($('.cc-number').val()));
-    $('.cc-exp').toggleInputError(!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
-    $('.cc-cvc').toggleInputError(!$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
 
-    //- Determina tipul cardului
-    switch(cardType) {
-      case 'visa':
-        $('.cc-brand').html('<i class="fa fa-cc-visa credit-card"></i>')
-        break;
-      case 'mastercard':
-        $('.cc-brand').html('<i class="fa fa-cc-mastercard credit-card"></i>')
-        break;
-      case 'discover':
-        $('.cc-brand').html('<i class="fa fa-cc-discover credit-card"></i>')
-        break;
-      case 'amex':
-        $('.cc-brand').html('<i class="fa fa-cc-amex credit-card"></i>')
-        break;
-      // American Express
-      // Diners Club
-      // UnionPay
-      // JCB
-      // Visa Electron
-      // Maestro
-      // Forbrugsforeningen
-      // Dankort
-      // case n:
-      // code block
-      // break;
-      default:
-        console.log(0);
-      }
+
     // $('.cc-brand').text(cardType);
     $('.cnp').toggleInputError(!cnpValid(cnp));
     $('.mail').toggleInputError(!$('.mail').val());
@@ -280,7 +253,7 @@ jQuery(function($) {
     <div class="row">
       <div class="col-sm-6">
         <h2>Cont Nou <i class="fa fa-lock"></i></h2>
-        <form novalidate="" autocomplete="on" method="POST">
+        <form novalidate="" method="POST">
           <div class="form-group">
             <label for="mail" class="control-label">Adresa de E-Mail</label>
             <input type="text" placeholder="Ex: gheorghe.gheorghescu@mail.com" required="" name="email" class="mail input-lg form-control"/>
@@ -638,19 +611,6 @@ jQuery(function($) {
           <div class="form-group">
             <label for="telefon" class="control-label">Numar de Telefon</label>
             <input type="text" placeholder="Ex: 0721234567 " required="" name="phone" class="telefon input-lg form-control"/>
-          </div>
-          <h3>Metoda de Facturare <i class="fa fa-money"> </i></h3>
-          <div class="form-group">
-            <label for="cc-number" class="control-label">Card<small class="text-muted"> <span class="cc-brand"></span> </small></label>
-            <input id="cc-number" type="text" pattern="d*" autocomplete="cc-number" placeholder="Card number" required="" name="cardNumber" class="input-lg form-control cc-number"/>
-          </div>
-          <div class="form-group">
-            <label for="cc-exp" class="control-label">Expiry formatting</label>
-            <input id="cc-exp" type="text" pattern="d*" autocomplete="cc-exp" placeholder="Expires MM/YY" required="" name="cardExpiry" class="input-lg form-control cc-exp"/>
-          </div>
-          <div class="form-group">
-            <label for="cc-cvc" class="control-label">CVC formatting</label>
-            <input id="cc-cvc" type="text" pattern="d*" autocomplete="off" placeholder="Security code" required="" name="cardCVC" class="input-lg form-control cc-cvc"/>
           </div>
           <input type="checkbox" name="terms" value="terms" class="terms"/> Am citit si sunt de acord cu <a href="/terms-and-agreements/">termenii si conditiile</a>.<br/><br/>
           <button type="submit" class="btn btn-lg btn-primary subm">Creeaza cont</button>

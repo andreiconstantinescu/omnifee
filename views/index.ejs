@@ -42,7 +42,7 @@ Inspired by the dribble shot http://dribbble.com/shots/1285240-Freebie-Flat-Pric
 .group:after {
     content: "";
     display: table;
-} 
+}
 .group:after {
     clear: both;
 }
@@ -54,7 +54,7 @@ body {
     background: #F2F2F2;
     font-family: 'Droid Sans', sans-serif;
     line-height: 1;
-    font-size: 16px;    
+    font-size: 16px;
 }
 .wrapper {
     background: #333333;
@@ -74,12 +74,12 @@ body {
     margin-bottom: 4rem;
 }
 .block{
-    width: 30%;    
+    width: 30%;
     margin: 0 15px;
     overflow: hidden;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px;    
+    border-radius: 5px;
 /*    border: 1px solid red;*/
 }
 /*Shared properties*/
@@ -109,7 +109,7 @@ body {
     top:0;
 }
 .content:after,.pt-footer:after {
-  border-color: rgba(136, 183, 213, 0); 
+  border-color: rgba(136, 183, 213, 0);
   border-width: 5px;
   margin-left: -5px;
 }
@@ -120,14 +120,14 @@ body {
     margin-bottom: 0.625rem;
 
 }
-.price span{    
+.price span{
     font-size: 6rem;
     letter-spacing: 8px;
-    font-weight: bold;        
+    font-weight: bold;
 }
 .price sup{
-    font-size: 1.5rem;    
-    position: absolute;    
+    font-size: 1.5rem;
+    position: absolute;
     top: 12px;
     left: -12px;
 }
@@ -136,7 +136,7 @@ body {
     font-size: 0.9rem;
 }
 .features{
-    list-style-type: none;    
+    list-style-type: none;
     background: #FFFFFF;
     text-align: left;
     color: #9C9C9C;
@@ -149,7 +149,7 @@ body {
     width: 100%;
 }
 .features li span{
-   padding-right: 0.4rem; 
+   padding-right: 0.4rem;
 }
 .pt-footer{
     font-size: 0.95rem;
@@ -162,14 +162,14 @@ body {
     border-radius: 5px 5px 0 0;
     margin-bottom: 0;
 }
-.personal .title{        
-    background: #78CFBF;    
+.personal .title{
+    background: #78CFBF;
 }
 .personal .content,.personal .pt-footer{
     background: #82DACA;
 }
-.personal .content:after{ 
-  border-top-color: #82DACA;  
+.personal .content:after{
+  border-top-color: #82DACA;
 }
 .personal .pt-footer:after{
     border-top-color: #FFFFFF;
@@ -181,8 +181,8 @@ body {
 .professional .content,.professional .pt-footer{
     background: #53CFE9;
 }
-.professional .content:after{ 
-  border-top-color: #53CFE9;  
+.professional .content:after{
+  border-top-color: #53CFE9;
 }
 .professional .pt-footer:after{
     border-top-color: #FFFFFF;
@@ -194,11 +194,11 @@ body {
 .business .content,.business .pt-footer{
     background: #EB6379;
 }
-.business .content:after{ 
-  border-top-color: #EB6379;  
+.business .content:after{
+  border-top-color: #EB6379;
 }
-.business .pt-footer:after {  
-  border-top-color: #FFFFFF;  
+.business .pt-footer:after {
+  border-top-color: #FFFFFF;
 }
   </style>
 	<style>
@@ -215,10 +215,16 @@ body {
 	.mainstripe .content {
   position: relative;
   padding: 0;
-  background-color: #f00;
+	background-image: url('/assets/poza.png');
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+}
+@media (max-width: 1200px) {
+	.mainstripe .content {
+		width: 100%
+		height: auto;
+	}
 }
 .mainstripe .content .videoLayer video {
   /*position: fixed;*/
@@ -452,7 +458,7 @@ a:hover {
 </nav>
 <div class="mainstripe">
   <div class="content">
-    <div class="videoLayer">
+    <div class="videoLayer hidden-xs">
      <video  autoplay="autoplay" loop="true">
       <source src="../../assets/video.mp4" type="video/mp4" />
      </video>
@@ -517,99 +523,51 @@ a:hover {
     </div>
   </div>
 </div>
-<div class="wrapper">
-        <div class="pricing-table group">
-            <h1 class="heading">
-                Preturi
-            </h1>
-            <!-- PERSONAL -->
-            <div class="block personal fl">
-                <h2 class="title">Gratuit</h2>
-                <!-- CONTENT -->
-                <div class="content">
-                    <p class="price">
-                        <span>0</span>
-                        <sub>RON</sub>
-                    </p>
-                    <p class="hint">Perfect pentru nehotarati</p>
-                </div>
-                <!-- /CONTENT -->
-                <!-- FEATURES -->
-                <ul class="features">
-                    <li><span class="fa fa-ticket"></span>2 facturi pe luna</li>
-                    <li><span class="fa fa-area-chart"></span>Fara contabilizare</li>
-                    <li><span class="fa fa-user"></span>Un singur utilizator</li>
-                </ul>
-                <!-- /FEATURES -->
-                <!-- PT-FOOTER -->
-                <div class="pt-footer">
-                  <a href="/signup">
-                    <p>Cont nou</p>
-                  </a>
-                </div>
-                <!-- /PT-FOOTER -->
-            </div>
-            <!-- /PERSONAL -->
-            <!-- PROFESSIONAL -->
-            <div class="block professional fl">
-                <h2 class="title">Personal</h2>
-                <!-- CONTENT -->
-                <div class="content">
-                    <p class="price">
-                        <span>2%</span>
-                        <sup>*</sup>
-                    </p>
-                    <p class="hint">*procent din suma facturilor platite</p>
-                </div>
-                <!-- /CONTENT -->
-                <!-- FEATURES -->
-                <ul class="features">
-                    <li><span class="fa fa-ticket"></span>Numar nelimitat de facturi</li>
-                    <li><span class="fa fa-area-chart"></span>Contabilizare fara limite</li>
-                    <li><span class="fa fa-user"></span>Un singur utilizator</li>
-                </ul>
-                <!-- /FEATURES -->
-                <!-- PT-FOOTER -->
-                <div class="pt-footer">
-                  <a href="/signup">
-                    <p>Cont nou</p>
-                  </a>
-                </div>
-                <!-- /PT-FOOTER -->
-            </div>
-            <!-- /PROFESSIONAL -->
-            <!-- BUSINESS -->
-            <div class="block business fl">
-                <h2 class="title">Grup</h2>
-                <!-- CONTENT -->
-                <div class="content">
-                    <p class="price">
-                        <sup>*</sup>
-                        <span>3%</span>
-                    </p>
-                    <p class="hint">*procent din suma facturilor platite</p>
-                </div>
-                <!-- /CONTENT -->
+<hr>
+<div id="name2" style='padding: 3em 0'>
+	<div class="container">
+			<div class='row'>
+				<div class='col-sm-offset-1 col-sm-2'>
+			<i class="fa fa-check fa-5x" style="color: green"></i>
 
-                <!-- FEATURES -->
-                <ul class="features">
-                    <li><span class="fa fa-ticket"></span>Numar nelimitat de facturi</li>
-                    <li><span class="fa fa-area-chart"></span>Contabilizare fara limite</li>
-                    <li><span class="fa fa-users"></span>Plata pentru alti utilizatori</li>
-                </ul>
-                <!-- /FEATURES -->
+				</div>
+				<div class='col-sm-9'>
+			<h2>Toate facturile apar automat, fara introducerea lor manuala</h2>
 
-                <!-- PT-FOOTER -->
-                <div class="pt-footer">
-                  <a href="/signup">
-                    <p>Cont nou</p>
-                  </a>
-                </div>
-                <!-- /PT-FOOTER -->
-            </div>
-            <!-- /BUSINESS -->
-        </div>
-        <!-- /PRICING-TABLE -->
+				</div>
+			</div>
+	<div class='row'>
+<div class='col-sm-offset-1 col-sm-2'>
+
+	<i class="fa fa-check fa-5x" style="color: green"></i>
+		</div>
+		<div class='col-sm-9'>
+	<h2>Recuperarea timpului pierdut la cozi</h2>
+
+		</div>
+	</div>
+	<div class='row'>
+		<div class='col-sm-offset-1 col-sm-2'>
+	<i class="fa fa-check fa-5x" style="color: green"></i>
+
+		</div>
+		<div class='col-sm-9'>
+	<h2>Totul intr-un singur cont si fara setari prealabile</h2>
+
+		</div>
+	</div>
+	<div class='row'>
+		<div class='col-sm-offset-1 col-sm-2'>
+
+	<i class="fa fa-check fa-5x" style="color: green"></i>
+		</div>
+		<div class='col-sm-9'>
+	<h2>Mobilitate si flexibilitate</h2>
+
+		</div>
+	</div>
+	</div>
+</div>
     </div>
     </div>
 </body>
