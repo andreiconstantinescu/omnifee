@@ -59,6 +59,7 @@ app.post('/pay', function(req, res) {
 	var toSet = {};
 	toSet['balance'] = req.body.newBallance;
 	toSet[req.body.paidBill] = req.body.paidBill;
+	toSet['paidAll'] = req.body.paidAll;
 	console.log(toSet);
 	var update = {$set: toSet};
 

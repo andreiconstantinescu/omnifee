@@ -211,7 +211,7 @@ a:hover {
     </div>
     <div id="navbar-collapse" class="collapse navbar-collapse navbar-right">
       <ul class="nav navbar-nav">
-        <li><a href="/login/">Log in</a></li>
+        <li><a href="/">Log out</a></li>
       </ul>
     </div>
   </div>
@@ -264,7 +264,7 @@ a:hover {
               Setari
             </h2>
           </div>
-          
+
         </div>
 
 	        <form novalidate="" autocomplete="on" method="POST">
@@ -291,33 +291,7 @@ a:hover {
   </div>
 </div>
 
-<div class="container">
 
-	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-	</div>
-
-	<div class="row">
-
-		<!-- LOCAL INFORMATION -->
-		<div class="col-sm-6">
-			<div class="well">
-				<h3><span class="fa fa-user"></span> Local</h3>
-
-				<% if (user.local.email) { %>
-					<p>
-						<strong>id</strong>: <%= user._id %><br>
-						<strong>email</strong>: <%= user.local.email %><br>
-						<strong>password</strong>: <%= user.local.password %>
-					</p>
-
-					<a href="/unlink/local" class="btn btn-default">Unlink</a>
-				<% } else { %>
-					<a href="/connect/local" class="btn btn-default">Connect Local</a>
-				<% } %>
-
-			</div>
 
 </body>
 </html>

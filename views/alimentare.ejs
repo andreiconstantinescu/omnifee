@@ -211,7 +211,7 @@ a:hover {
     </div>
     <div id="navbar-collapse" class="collapse navbar-collapse navbar-right">
       <ul class="nav navbar-nav">
-        <li><a href="/login/">Log in</a></li>
+        <li><a href="/">Log out</a></li>
       </ul>
     </div>
   </div>
@@ -285,41 +285,50 @@ a:hover {
 							<span id="warn"></span>
 	            <input type="text" required="" name="alimentare" class="input-lg form-control" id="amount"/>
 	          </div>
-        		<h4>Selectati cardul cu care doriti sa alimentati:</h4>
+        		<!-- <h4>Selectati cardul cu care doriti sa alimentati:</h4>
         		<div class="select-card">
         			<a href='#' onclick='return false'>
 								<span class="cc-type"></span>
 		            <span class="cc-number"><%= user.cardNumber %></span>
-            	</a>
+            	</a> -->
           </div>
+
+						<div class="form-group">
+							<label for="cc-number" class="control-label">Card<small class="text-muted"> <span class="cc-brand"></span> </small></label>
+							<input id="cc-number" type="text" pattern="d*"  placeholder="Card number" required="" name="cardNumber" class="input-lg form-control cc-number"/>
+						</div>
+						<div class="form-group">
+							<label for="cc-exp" class="control-label">Expiry formatting</label>
+							<input id="cc-exp" type="text" pattern="d*"  placeholder="Expires MM/YY" required="" name="cardExpiry" class="input-lg form-control cc-exp"/>
+						</div>
+						<div class="form-group">
+							<label for="cc-cvc" class="control-label">CVC formatting</label>
+							<input id="cc-cvc" type="text" pattern="d*" placeholder="Security code" required="" name="cardCVC" class="input-lg form-control cc-cvc"/>
+						</div>
+
         	<h3>Cod prepaid</h3>
 	            <input type="text" placeholder="J8S%k@jd93Io!4y" required="" name="codprepaid" class="input-lg form-control"/>
 	          <br>
+
+
 	         <button class="btn btn-lg btn-primary" id="quickAdd">Alimenteaza</button>
+						<h2 class="validation"></h2>
 	        </form>
-        </div>
 	<script charset="utf-8">
 
 	$( document ).ready(function() {
+		var ok = 1;
 
-    var cardType = $.payment.cardType($('.cc-number').text());
 
-    switch(cardType) {
-      case 'visa':
-        $('.cc-type').html('<i class="fa fa-cc-visa"></i>')
-        break;
-      case 'mastercard':
-        $('.cc-type').html('<i class="fa fa-cc-mastercard"></i>')
-        break;
-      case 'discover':
-        $('.cc-type').html('<i class="fa fa-cc-discover"></i>')
-        break;
-      case 'amex':
-        $('.cc-type').html('<i class="fa fa-cc-amex"></i>')
-        break;
-      default:
-        console.log(0);
-      }
+jQuery(function($) {
+	$('[data-numeric]').payment('restrictNumeric');
+	$('.cc-number').payment('formatCardNumber');
+	$('.cc-exp').payment('formatCardExpiry');
+	$('.cc-cvc').payment('formatCardCVC');
+
+	});
+
+
 	$('#quickAdd').on('click',function () {
 		var value = parseFloat($('#amount').val());
 		console.log(value);
@@ -335,27 +344,25 @@ a:hover {
 			userId: '<%= user._id %>',
 			newBallance: value
 		};
-		$.ajax({
-			type: 'post',
-			url: 'http://localhost:8080/alimentare',
-			contentType: 'application/json',
-			data: JSON.stringify(data),
-			success: function () {
-				console.log('success');
-				$('#myModal').modal('hide');
-			},
-			error: function () {
-				console.log('error');
-			}
-		});
-		setTimeout(function () {
 
-			$('.balance-number span').text(value);
-
-		}, 200)
-	})
+	$.ajax({
+		type: 'post',
+		url: 'http://localhost:8080/alimentare',
+		contentType: 'application/json',
+		data: JSON.stringify(data),
+		success: function () {
+			console.log('success');
+		},
+		error: function () {
+			console.log('error');
+		}
+	});
+	$('.balance-number span').text(value);
 });
+});
+
 	</script>
+        </div>
       </div>
 			<div class="col-sm-2 hidden-xs">
 
