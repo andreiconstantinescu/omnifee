@@ -18,6 +18,7 @@ var configDB = require('./config/database.js');
 var User       = require('./app/models/user');
 
 // configuration ===============================================================
+console.log(configDB.url);
 mongoose.connect(configDB.url); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
