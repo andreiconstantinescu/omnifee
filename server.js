@@ -72,9 +72,9 @@ app.post('/pay', function(req, res) {
 	// User.findById(req.body.userId, function (err, doc){
 	// 	console.log(doc);
 // });
-app.get('/35515bb86754.html') {
-	res.send('4b00e21dfa93');
-}
+app.get('/35515bb86754.html', function(req, res) {
+	res.sendFile(__dirname + '/35515bb86754');
+});
 res.status(200).end();
 });
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
